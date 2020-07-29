@@ -2,11 +2,11 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-const CalendarContainer = (props) => {
+const CalendarContainer = ({onChange}) => {
 
     return (
-        <div className="App">
-          <Calendar onChange={props.onChange}/>
+        <div className="App-calendar">
+          <Calendar onChange={onChange}/>
         </div>
     );
 };

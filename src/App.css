@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
+.App-wrapper {
+  margin: 2% auto;
+  width: 1280px;
+  display: grid;
+  grid-template-areas: "calendar content" ;
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-calendar{
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: calendar;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-content{
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: content;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-content img{
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
 }
