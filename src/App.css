@@ -1,29 +1,47 @@
 .App-wrapper {
-  margin: 2% auto;
-  width: 1280px;
-  display: grid;
-  grid-template-areas: "calendar content" ;
-  grid-template-rows: 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+    margin: 2% auto;
+    width: 1280px;
+    display: grid;
+    grid-template-areas: "calendar content" "all all";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
 }
 
-.App-calendar{
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
-  grid-area: calendar;
-  margin-bottom: 10px;
+.App-calendar {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    grid-area: calendar;
+    margin-bottom: 10px;
 }
 
-.App-content{
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
-  grid-area: content;
-  margin-bottom: 10px;
+.App-content {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    grid-area: content;
+    margin-bottom: 10px;
 }
 
-.App-content img{
-  width: 400px;
-  height: 300px;
-  object-fit: cover;
+.App-all-content {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    grid-area: all;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 300px 300px 300px;
+    justify-self: center;
+}
+
+.App-all-content img {
+    height: 293px;
+    width: 293px;
+    margin: 10px;
+    object-fit: cover;
+}
+
+.App-content img {
+    position: absolute;
+    height: 265px;
+    /*293*/
+    object-fit: cover;
 }
