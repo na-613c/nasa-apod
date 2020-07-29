@@ -1,11 +1,16 @@
 import React from 'react';
 
-const Content = ({img}) => {
+const Content = ({img, setBigImage}) => {
 
     return (
-        <div className="App-content">
-            <img src={img.hdurl} alt={img.title}/>
-            <span>{img.title}</span>
+        <div className='App-content'>
+            <img onClick={setBigImage}
+                 src={img.hdurl}
+                 alt={img.title}
+                 title={!img.title ? '' : 'Нажмите для увеличения'}/>
+
+            <span><b>{!img.title ? 'Данных нет' : img.title}</b></span>
+            <p>{!img.date ? 'Возможно дата еще не наступила или нет сохраненных данных' : img.date}</p>
         </div>
     );
 };

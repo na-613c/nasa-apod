@@ -1,15 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
-import 'react-calendar/dist/Calendar.css';
-import CalendarContainer from "./components/Calendar/CalendarContainer";
-import Content from "./components/Content/Content";
-import {getPicture} from "./api/api";
+import CalendarContainer from './components/Calendar/CalendarContainer';
+import GridPictures from './components/GridPictures/GridPictures';
+import BigImage from './components/BigImage/BigImage';
+import Content from './components/Content/Content';
 import defaultImages from './images/not_found.gif'
-import GridPictures from "./components/GridPictures/GridPictures";
+import {getPicture} from './api/api';
+import 'react-calendar/dist/Calendar.css';
+import './App.css';
+
 
 const App = () => {
     const [img, setImg] = useState({});
     const [month, setMonth] = useState([]);
+    const [isModal, setModal] = useState(false);
+
+    const setBigImage = () => {
+        isModal ? setModal(false) : setModal(true);
+    };
 
     const getDate = () => {
         return !localStorage.getItem('date')
@@ -21,9 +28,6 @@ const App = () => {
         queryOneImg(getDate());
         queryMonthImg();
     }, []);
-
-    useEffect(() => {
-    }, [month]);
 
     const queryOneImg = async (value) => {
         return setImg(await query(value));
@@ -41,42 +45,52 @@ const App = () => {
         return currentImg
     };
 
+    const formatDate = (date) => {
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        return `${year}-${month}-${day}`;
+    };
+
     const query = async (value) => {
-        const day = value.getDate();
-        const month = value.getMonth() + 1;
-        const year = value.getFullYear();
 
-        const selectedDate = `${year}-${month}-${day}`;
-        const response = await getPicture(selectedDate);
+        const response = await getPicture(formatDate(value));
 
-        let url = !response.url ? defaultImages : response.hdurl
+        let url = !response.url ? defaultImages : response.hdurl;
 
         return {
             url: !response.hdurl ? defaultImages : url,
             hdurl: !response.hdurl ? defaultImages : response.hdurl,
-            title: response.title
+            title: response.title,
+            date: response.date
         };
     };
 
     let onChange = (value) => {
-        localStorage.setItem('date', value);
+        const localDate = formatDate(value);
+        const currentDate = formatDate(new Date());
+
+        localDate === currentDate
+            ? localStorage.removeItem('date')
+            : localStorage.setItem('date', value);
+
         queryOneImg(value);
     };
-
 
     const onActiveStartDateChange = ({activeStartDate, value, view}) => {
         queryMonthImg(activeStartDate);
     };
 
-
     return (
-        <div className="App-wrapper">
+        <div className='App-wrapper'>
             <CalendarContainer
                 onChange={onChange}
                 onActiveStartDateChange={onActiveStartDateChange}
                 value={getDate()}/>
-            <Content img={img}/>
+            <Content img={img} setBigImage={setBigImage}/>
             <GridPictures imgArray={[...month]}/>
+            <BigImage src={img.hdurl} isModal={isModal} setBigImage={setBigImage}/>
         </div>
     )
 };

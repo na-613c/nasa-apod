@@ -7,7 +7,7 @@ const CalendarContainer = ({onActiveStartDateChange, onChange, value}) => {
 
 
     return (
-        <div className="App-calendar">
+        <div className='App-calendar'>
             <Calendar
                 onChange={onChange}
                 value={value}
