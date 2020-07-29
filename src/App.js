@@ -8,6 +8,7 @@ import {getPicture} from "./api/api";
 const App = () => {
 
     let onChange = (value) => {
+        localStorage.setItem('date', value);
         query(value);
     };
 
@@ -16,26 +17,28 @@ const App = () => {
         const month = value.getMonth() + 1;
         const year = value.getFullYear();
         const selectedDate = `${year}-${month}-${day}`;
-
         const response = await getPicture(selectedDate);
-        let imgUrl = '';
-        !response.hdurl ? imgUrl = '' : imgUrl = response.hdurl;
+        let imgUrl = !response.hdurl ? '' : response.hdurl;
         setImg(imgUrl);
     };
 
+    const [img, setImg] = useState();
+
+
     useEffect(() => {
-        const now = new Date();
+        const now = !localStorage.getItem('date')
+            ? new Date()
+            : new Date(localStorage.getItem('date'));
         query(now);
     }, []);
 
-    const [img, setImg] = useState();
 
     return (
         <div className="App-wrapper">
             <CalendarContainer onChange={onChange}/>
             <Content img={img}/>
         </div>
-    );
+    )
 };
 
 export default App;
