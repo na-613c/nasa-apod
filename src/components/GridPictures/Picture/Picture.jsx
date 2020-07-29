@@ -1,10 +1,12 @@
 import React from 'react';
 
 
-const Picture = ({src}) => {
+const Picture = ({src, title}) => {
     return (
-        <img key={src} src={src} alt=""/>
-        )
+        <div>
+            <img key={src} src={src} alt={title}/>
+            <span>{title}</span>
+        </div>)
 
 };
 

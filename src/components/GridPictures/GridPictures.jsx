@@ -4,7 +4,7 @@ import Picture from "./Picture/Picture";
 
 const GridPictures = ({imgArray}) => {
 
-    let pictures = imgArray.map((item) => <Picture src={item}/>);
+    let pictures = imgArray.filter(i => i.title).map((i,id) => <Picture key={id} src={i.url} title={i.title}/>);
 
     return (
         <div className='App-all-content'>

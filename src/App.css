@@ -30,6 +30,7 @@
     grid-gap: 10px;
     grid-template-columns: 300px 300px 300px;
     justify-self: center;
+    text-align: center;
 }
 
 .App-all-content img {
@@ -40,8 +41,8 @@
 }
 
 .App-content img {
-    position: absolute;
-    height: 265px;
-    /*293*/
+    float:left;
+    margin-right: 10px;
+    height: 272px;
     object-fit: cover;
 }

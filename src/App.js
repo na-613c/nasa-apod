@@ -8,7 +8,7 @@ import defaultImages from './images/not_found.gif'
 import GridPictures from "./components/GridPictures/GridPictures";
 
 const App = () => {
-    const [img, setImg] = useState();
+    const [img, setImg] = useState({});
     const [month, setMonth] = useState([]);
 
     const getDate = () => {
@@ -49,7 +49,13 @@ const App = () => {
         const selectedDate = `${year}-${month}-${day}`;
         const response = await getPicture(selectedDate);
 
-        return !response.hdurl ? defaultImages : response.hdurl;
+        let url = !response.url ? defaultImages : response.hdurl
+
+        return {
+            url: !response.hdurl ? defaultImages : url,
+            hdurl: !response.hdurl ? defaultImages : response.hdurl,
+            title: response.title
+        };
     };
 
     let onChange = (value) => {

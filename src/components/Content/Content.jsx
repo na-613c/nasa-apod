@@ -4,7 +4,8 @@ const Content = ({img}) => {
 
     return (
         <div className="App-content">
-            <img src={img} alt=""/>
+            <img src={img.hdurl} alt={img.title}/>
+            <span>{img.title}</span>
         </div>
     );
 };
