@@ -4,13 +4,21 @@ import GridPictures from './components/GridPictures/GridPictures';
 import BigImage from './components/BigImage/BigImage';
 import Content from './components/Content/Content';
 import defaultImages from './images/not_found.gif'
+import preloader from './images/Preloader.gif'
 import {getPicture} from './api/api';
 import 'react-calendar/dist/Calendar.css';
 import './App.css';
 
 
 const App = () => {
-    const [img, setImg] = useState({});
+    const initImgState = {
+        url: preloader,
+        hdurl: preloader,
+        title: 'Загрузка',
+        date: ''
+    };
+
+    const [img, setImg] = useState(initImgState);
     const [month, setMonth] = useState([]);
     const [isModal, setModal] = useState(false);
 
@@ -54,11 +62,8 @@ const App = () => {
     };
 
     const query = async (value) => {
-
         const response = await getPicture(formatDate(value));
-
         let url = !response.url ? defaultImages : response.hdurl;
-
         return {
             url: !response.hdurl ? defaultImages : url,
             hdurl: !response.hdurl ? defaultImages : response.hdurl,
@@ -68,6 +73,7 @@ const App = () => {
     };
 
     let onChange = (value) => {
+        setImg(initImgState);
         const localDate = formatDate(value);
         const currentDate = formatDate(new Date());
 
@@ -79,6 +85,7 @@ const App = () => {
     };
 
     const onActiveStartDateChange = ({activeStartDate, value, view}) => {
+        setMonth([]);
         queryMonthImg(activeStartDate);
     };
 
