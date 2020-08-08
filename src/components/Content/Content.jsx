@@ -4,7 +4,7 @@ const Content = ({img, setBigImage}) => {
 
     return (
         <div className='App-content'>
-            <img onClick={setBigImage}
+            <img onClick={() => setBigImage(img.hdurl)}
                  src={img.hdurl}
                  alt={img.title}
                  title={!img.title ? '' : 'Нажмите для увеличения'}/>

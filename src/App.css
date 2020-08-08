@@ -57,8 +57,8 @@
 }
 
 .big-image {
-    width: 100%;
-    max-width: 900px;
+    /*max-width: 90%;*/
+    max-height: 90%;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -66,10 +66,21 @@
     z-index: 30;
     box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
     text-align: center;
-    padding: 30px;
+    padding: 2%;
     border-radius: 3px;
     background-color: #fff;
     transition: 0.3s all;
+}
+
+.background-big-image{
+    transform: translate(-50%, -50%);
+    z-index: 29;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    background: rgba(1,1,1,0.6);
 }
 
 .big-image img {
@@ -79,11 +90,11 @@
 }
 
 .modal__cross {
-    width: 15px;
-    height: 15px;
+    width: 2%;
+    height: 2%;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 1.5%;
+    right: 1.5%;
     fill: #444;
     cursor: pointer;
 }

@@ -11,6 +11,7 @@ import './App.css';
 
 
 const App = () => {
+
     const initImgState = {
         url: preloader,
         hdurl: preloader,
@@ -21,8 +22,9 @@ const App = () => {
     const [img, setImg] = useState(initImgState);
     const [month, setMonth] = useState([]);
     const [isModal, setModal] = useState(false);
+    const [bigImg, setBigImg] = useState(initImgState.hdurl);
 
-    const setBigImage = () => {
+    const setModalImage = () => {
         isModal ? setModal(false) : setModal(true);
     };
 
@@ -86,7 +88,13 @@ const App = () => {
 
     const onActiveStartDateChange = ({activeStartDate, value, view}) => {
         setMonth([]);
+        console.log(activeStartDate);
         queryMonthImg(activeStartDate);
+    };
+
+    const setBigImage = (img) =>{
+        setBigImg(img);
+        return setModalImage()
     };
 
     return (
@@ -96,8 +104,8 @@ const App = () => {
                 onActiveStartDateChange={onActiveStartDateChange}
                 value={getDate()}/>
             <Content img={img} setBigImage={setBigImage}/>
-            <GridPictures imgArray={[...month]}/>
-            <BigImage src={img.hdurl} isModal={isModal} setBigImage={setBigImage}/>
+            <GridPictures imgArray={[...month]} setBigImage={setBigImage}/>
+            <BigImage src={bigImg} isModal={isModal} setBigImage={setModalImage}/>
         </div>
     )
 };
