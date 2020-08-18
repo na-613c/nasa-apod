@@ -8,9 +8,7 @@ const GridPictures = ({imgArray, setBigImage}) => {
     let pictures = imgArray.filter(i => i.title)
         .map((i, id) => <Picture key={id}
                                  setBigImage={setBigImage}
-                                 src={i.url}
-                                 date={i.date}
-                                 title={i.title}/>);
+                                 img={i}/>);
 
     return (
         <>

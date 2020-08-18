@@ -9,7 +9,7 @@ const Content = ({img, setBigImage}) => {
             <div className='Content-img'>
                 {img.hdurl === null
                     ? <Preloader/>
-                    : <img onClick={() => setBigImage(img.hdurl)}
+                    : <img onClick={() => setBigImage(img)}
                            onMouseEnter={() => setIsShown(true)}
                            onMouseLeave={() => setIsShown(false)}
                            src={img.hdurl}
@@ -19,17 +19,19 @@ const Content = ({img, setBigImage}) => {
             </div>
             {!isShown && img.hdurl !== null && (
                 <Text title={!img.title ? 'Данных нет' : img.title}
-                      date={!img.date ? 'Возможно дата еще не наступила или нет сохраненных данных' : img.date}/>
+                      date={!img.date ? 'Возможно дата еще не наступила или нет сохраненных данных' : img.date}
+                      explanation={!img.explanation ? '' : img.explanation}/>
             )}
         </div>
     );
 };
 
-const Text = ({title, date}) => {
+const Text = ({title, date, explanation}) => {
     return (
         <>
             <span><b>{title}</b></span>
             <p>{date}</p>
+            <p className='Explanation'>{explanation}</p>
         </>
     )
 };

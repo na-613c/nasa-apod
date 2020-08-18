@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-const Picture = ({src, title, date, setBigImage}) => {
+const Picture = ({img, setBigImage}) => {
     return (
-        <div className='item' onClick={() => setBigImage(src)}>
-            <img src={src} alt={title} title={title}/>
-            <p> <b>{title}</b></p>
-            <p>{date}</p>
+        <div className='item' onClick={() => setBigImage(img)}>
+            <img src={img.url} alt={img.title} title={img.title}/>
+            <p> <b>{img.title}</b></p>
+            <p>{img.date}</p>
         </div>)
 
 };

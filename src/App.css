@@ -30,6 +30,11 @@
     background: white;
 }
 
+.App-content span{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .App-all-content {
     max-width: 960px;
     margin: auto;
@@ -67,6 +72,14 @@
     transition: 0.3s all;
 }
 
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 .big-image {
     max-height: 90%;
@@ -74,25 +87,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 30;
     box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
     text-align: center;
-    padding: 2%;
+    padding: 10px;
     border-radius: 3px;
     background-color: #fff;
-    opacity: 0;
-    transition: .5s;
-    animation: show .5s 1;
-    animation-fill-mode: forwards;
-}
-
-@keyframes show {
-    0% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 .background-big-image {
@@ -104,21 +103,30 @@
     height: 100%;
     width: 100%;
     background: rgba(1, 1, 1, 0.6);
+    opacity: 0;
+    transition: .5s;
+    animation: show .6s 1;
+    animation-fill-mode: forwards;
+}
+
+.Explanation{
+    height: 78%;
+    text-overflow: ellipsis;
+    overflow-y: auto;
 }
 
 .big-image img {
-    width: 100%;
     max-height: 600px;
     object-fit: contain;
 }
 
 .modal__cross {
-    width: 2%;
-    height: 2%;
+    width: 20px;
+    height: 20px;
     position: absolute;
-    top: 1.5%;
-    right: 1.5%;
-    fill: #444;
+    top: 20px;
+    right: 20px;
+    fill: #fcfcfc;
     cursor: pointer;
 }
 

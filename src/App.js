@@ -15,13 +15,14 @@ const App = () => {
         url: null,
         hdurl: null,
         title: 'Загрузка',
-        date: ''
+        date: '',
+        explanation: ''
     };
 
     const [img, setImg] = useState(initImgState);
     const [month, setMonth] = useState([]);
     const [isModal, setModal] = useState(false);
-    const [bigImg, setBigImg] = useState(initImgState.hdurl);
+    const [bigImg, setBigImg] = useState(initImgState);
 
     const setModalImage = () => {
         isModal ? setModal(false) : setModal(true);
@@ -69,7 +70,8 @@ const App = () => {
             url: !response.hdurl ? defaultImages : url,
             hdurl: !response.hdurl ? defaultImages : response.hdurl,
             title: response.title,
-            date: response.date
+            date: response.date,
+            explanation: response.explanation
         };
     };
 
