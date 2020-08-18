@@ -1,13 +1,12 @@
 .App-wrapper {
-    margin: 2% auto;
+    margin: 2% auto 5% auto;
     width: 1280px;
     display: grid;
     grid-template-areas: "calendar content" "all all";
     grid-template-rows: 1fr auto;
     grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
+    grid-gap: 50px 10px;
     position: relative;
-
 }
 
 .App-calendar {
@@ -15,6 +14,7 @@
     margin-bottom: 10px;
     box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
     padding: 35px;
+    background: white;
 }
 
 .App-content {
@@ -27,37 +27,48 @@
     right: 0;
     top: 0;
     bottom: 0;
+    background: white;
 }
 
 .App-all-content {
+    max-width: 960px;
+    margin: auto;
     grid-area: all;
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 300px;
+    grid-template-columns: 320px 320px;
     text-align: center;
+    align-items: center;
 }
 
 .App-all-content img {
-    height: 293px;
-    width: 293px;
-    margin: 10px;
+    height: 300px;
+    width: 300px;
+    margin-bottom: 10px;
     object-fit: cover;
 }
 
-.App-content img {
+.Content-img {
+    height: 100%;
+    width: 100%;
+    display: inline;
+}
+
+.Content-img img {
     float: left;
     margin-right: 10px;
     height: 100%;
+    width: 308px;
     object-fit: cover;
 }
 
-.item {
-    padding: 10px;
-    box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
+.Content-img img:hover {
+    width: 760px;
+    transition: 0.3s all;
 }
 
+
 .big-image {
-    /*max-width: 90%;*/
     max-height: 90%;
     position: fixed;
     top: 50%;
@@ -69,10 +80,22 @@
     padding: 2%;
     border-radius: 3px;
     background-color: #fff;
-    transition: 0.3s all;
+    opacity: 0;
+    transition: .5s;
+    animation: show .5s 1;
+    animation-fill-mode: forwards;
 }
 
-.background-big-image{
+@keyframes show {
+    0% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.background-big-image {
     transform: translate(-50%, -50%);
     z-index: 29;
     position: fixed;
@@ -80,7 +103,7 @@
     left: 50%;
     height: 100%;
     width: 100%;
-    background: rgba(1,1,1,0.6);
+    background: rgba(1, 1, 1, 0.6);
 }
 
 .big-image img {
@@ -99,12 +122,55 @@
     cursor: pointer;
 }
 
-.preloader{
+.preloader {
     grid-area: all;
     text-align: center;
+    height: 293px;
 }
 
 
-.preloader img{
+.preloader img {
     height: 293px;
+}
+
+.item {
+    text-decoration: none;
+    display: absolute;
+    display: block;
+    height: 100%;
+    background: #fff;
+    text-align: left;
+    padding: 10px;
+    transform: rotate(-30deg) skew(25deg) translate(0, 0);
+    transition: .5s;
+    box-shadow: -20px 20px 10px rgba(0, 0, 0, .5);
+}
+
+.item:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    height: 100%;
+    width: 20px;
+    background: #b1b1b1;
+    transform: .5s;
+    transform: rotate(0deg) skewY(-45deg);
+}
+
+.item:after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    height: 20px;
+    width: 100%;
+    background: #b1b1b1;
+    transform: .5s;
+    transform: rotate(0deg) skewX(-45deg);
+}
+
+.item:hover {
+    transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
+    box-shadow: -50px 50px 50px rgba(0, 0, 0, .5);
 }

@@ -13,7 +13,8 @@ const GridPictures = ({imgArray, setBigImage}) => {
                                  title={i.title}/>);
 
     return (
-        <>{imgArray.length === 0
+        <>
+            {imgArray.length === 0
             ? <Preloader/>
             : <div className='App-all-content'>
                 {!imgArray ? '' : pictures}

@@ -1,18 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Preloader from "../Preloader/Preloader";
 
 const Content = ({img, setBigImage}) => {
+    const [isShown, setIsShown] = useState(false);
 
     return (
         <div className='App-content'>
-            <img onClick={() => setBigImage(img.hdurl)}
-                 src={img.hdurl}
-                 alt={img.title}
-                 title={!img.title ? '' : 'Нажмите для увеличения'}/>
-
-            <span><b>{!img.title ? 'Данных нет' : img.title}</b></span>
-            <p>{!img.date ? 'Возможно дата еще не наступила или нет сохраненных данных' : img.date}</p>
+            <div className='Content-img'>
+                {img.hdurl === null
+                    ? <Preloader/>
+                    : <img onClick={() => setBigImage(img.hdurl)}
+                           onMouseEnter={() => setIsShown(true)}
+                           onMouseLeave={() => setIsShown(false)}
+                           src={img.hdurl}
+                           alt={img.title}
+                           title={!img.title ? '' : 'Нажмите для увеличения'}/>
+                }
+            </div>
+            {!isShown && img.hdurl !== null && (
+                <Text title={!img.title ? 'Данных нет' : img.title}
+                      date={!img.date ? 'Возможно дата еще не наступила или нет сохраненных данных' : img.date}/>
+            )}
         </div>
     );
+};
+
+const Text = ({title, date}) => {
+    return (
+        <>
+            <span><b>{title}</b></span>
+            <p>{date}</p>
+        </>
+    )
 };
 
 export default Content;

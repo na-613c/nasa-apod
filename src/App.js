@@ -4,7 +4,6 @@ import GridPictures from './components/GridPictures/GridPictures';
 import BigImage from './components/BigImage/BigImage';
 import Content from './components/Content/Content';
 import defaultImages from './images/not_found.gif'
-import preloader from './images/Preloader.gif'
 import {getPicture} from './api/api';
 import 'react-calendar/dist/Calendar.css';
 import './App.css';
@@ -13,8 +12,8 @@ import './App.css';
 const App = () => {
 
     const initImgState = {
-        url: preloader,
-        hdurl: preloader,
+        url: null,
+        hdurl: null,
         title: 'Загрузка',
         date: ''
     };
@@ -92,7 +91,7 @@ const App = () => {
         queryMonthImg(activeStartDate);
     };
 
-    const setBigImage = (img) =>{
+    const setBigImage = (img) => {
         setBigImg(img);
         return setModalImage()
     };
