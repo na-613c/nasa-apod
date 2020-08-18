@@ -1,27 +1,26 @@
 {
   "files": {
-    "main.css": "/nasa-apod/static/css/main.3eac56ff.chunk.css",
-    "main.js": "/nasa-apod/static/js/main.f4aebdd5.chunk.js",
-    "main.js.map": "/nasa-apod/static/js/main.f4aebdd5.chunk.js.map",
+    "main.css": "/nasa-apod/static/css/main.5052027c.chunk.css",
+    "main.js": "/nasa-apod/static/js/main.24217037.chunk.js",
+    "main.js.map": "/nasa-apod/static/js/main.24217037.chunk.js.map",
     "runtime-main.js": "/nasa-apod/static/js/runtime-main.42cfeb27.js",
     "runtime-main.js.map": "/nasa-apod/static/js/runtime-main.42cfeb27.js.map",
     "static/css/2.8dbe6964.chunk.css": "/nasa-apod/static/css/2.8dbe6964.chunk.css",
-    "static/js/2.44ef49c2.chunk.js": "/nasa-apod/static/js/2.44ef49c2.chunk.js",
-    "static/js/2.44ef49c2.chunk.js.map": "/nasa-apod/static/js/2.44ef49c2.chunk.js.map",
+    "static/js/2.5e4ac5bd.chunk.js": "/nasa-apod/static/js/2.5e4ac5bd.chunk.js",
+    "static/js/2.5e4ac5bd.chunk.js.map": "/nasa-apod/static/js/2.5e4ac5bd.chunk.js.map",
     "index.html": "/nasa-apod/index.html",
-    "precache-manifest.58eb660c4f050da1081d4e20f0d91270.js": "/nasa-apod/precache-manifest.58eb660c4f050da1081d4e20f0d91270.js",
+    "precache-manifest.fa21bc3ad7277f50e32fa2b77a2b045b.js": "/nasa-apod/precache-manifest.fa21bc3ad7277f50e32fa2b77a2b045b.js",
     "service-worker.js": "/nasa-apod/service-worker.js",
     "static/css/2.8dbe6964.chunk.css.map": "/nasa-apod/static/css/2.8dbe6964.chunk.css.map",
-    "static/css/main.3eac56ff.chunk.css.map": "/nasa-apod/static/css/main.3eac56ff.chunk.css.map",
-    "static/js/2.44ef49c2.chunk.js.LICENSE.txt": "/nasa-apod/static/js/2.44ef49c2.chunk.js.LICENSE.txt",
-    "static/media/Preloader.gif": "/nasa-apod/static/media/Preloader.b7a14e29.gif",
+    "static/css/main.5052027c.chunk.css.map": "/nasa-apod/static/css/main.5052027c.chunk.css.map",
+    "static/js/2.5e4ac5bd.chunk.js.LICENSE.txt": "/nasa-apod/static/js/2.5e4ac5bd.chunk.js.LICENSE.txt",
     "static/media/not_found.gif": "/nasa-apod/static/media/not_found.e9ff6ff5.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.42cfeb27.js",
     "static/css/2.8dbe6964.chunk.css",
-    "static/js/2.44ef49c2.chunk.js",
-    "static/css/main.3eac56ff.chunk.css",
-    "static/js/main.f4aebdd5.chunk.js"
+    "static/js/2.5e4ac5bd.chunk.js",
+    "static/css/main.5052027c.chunk.css",
+    "static/js/main.24217037.chunk.js"
   ]
 }
