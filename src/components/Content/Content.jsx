@@ -12,7 +12,7 @@ const Content = ({img, setBigImage}) => {
                     : <img onClick={() => setBigImage(img)}
                            onMouseOver={() => setIsShown(true)}
                            onMouseOut={() => setIsShown(false)}
-                           src={img.hdurl}
+                           src={img.url}
                            alt={img.title}
                            title={!img.title ? '' : 'Нажмите для увеличения'}/>
                 }

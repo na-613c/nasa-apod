@@ -36,7 +36,7 @@ const App = () => {
 
     useEffect(() => {
         queryOneImg(getDate());
-        queryMonthImg();
+        queryMonthImg(getDate());
     }, []);
 
     const queryOneImg = async (value) => {
@@ -51,7 +51,7 @@ const App = () => {
             currentImg.push(await query(currentDate));
         }
 
-        Promise.all(currentImg).then(response => setMonth(response));
+        Promise.all(currentImg).then(response =>setMonth(response));
         return currentImg
     };
 
@@ -65,10 +65,10 @@ const App = () => {
 
     const query = async (value) => {
         const response = await getPicture(formatDate(value));
-        let url = !response.url ? defaultImages : response.hdurl;
+        let url = !response.url ? defaultImages : response.url;
         return {
             url: !response.hdurl ? defaultImages : url,
-            hdurl: !response.hdurl ? defaultImages : response.hdurl,
+            hdurl: !response.hdurl ? url : response.hdurl,
             title: response.title,
             date: response.date,
             explanation: response.explanation
