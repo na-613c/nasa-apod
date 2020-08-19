@@ -10,14 +10,14 @@ const Content = ({img, setBigImage}) => {
                 {img.hdurl === null
                     ? <Preloader/>
                     : <img onClick={() => setBigImage(img)}
-                           onMouseEnter={() => setIsShown(true)}
-                           onMouseLeave={() => setIsShown(false)}
+                           onMouseOver={() => setIsShown(true)}
+                           onMouseOut={() => setIsShown(false)}
                            src={img.hdurl}
                            alt={img.title}
                            title={!img.title ? '' : 'Нажмите для увеличения'}/>
                 }
             </div>
-            {!isShown && img.hdurl !== null && (
+            {(!isShown && img.hdurl !== null) && (
                 <Text title={!img.title ? 'Данных нет' : img.title}
                       date={!img.date ? 'Возможно дата еще не наступила или нет сохраненных данных' : img.date}
                       explanation={!img.explanation ? '' : img.explanation}/>

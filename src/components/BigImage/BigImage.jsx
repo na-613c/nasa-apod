@@ -3,8 +3,15 @@ import React from 'react';
 
 const BigImage = ({src, isModal, setBigImage}) => {
     if (isModal) {
+
+        const onClickSetBigImage = (e) =>{
+            if(e.target.className === 'background-big-image')  setBigImage();
+        };
+
         return (
-            <div className='background-big-image' key={src} onClick={setBigImage}>
+            <div className='background-big-image'
+                 key={src}
+                 onClick={onClickSetBigImage}>
                 <svg onClick={setBigImage} className='modal__cross' xmlns='http://www.w3.org/2000/svg'
                      viewBox='0 0 24 24'>
                     <path
@@ -12,13 +19,12 @@ const BigImage = ({src, isModal, setBigImage}) => {
                 </svg>
                 <div className='big-image'>
                     <img src={src.hdurl} alt=''/>
-                    <p>{src.title}</p>
+                    <p>{src.title} [ {src.date} ]</p>
+                    <a href={src.hdurl} target='_blank' download>Скачать файл</a>
                 </div>
             </div>
         )
     } else return (<></>);
-
-
 };
 
 export default BigImage;

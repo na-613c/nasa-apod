@@ -8,7 +8,6 @@ const Picture = ({img, setBigImage}) => {
             <p> <b>{img.title}</b></p>
             <p>{img.date}</p>
         </div>)
-
 };
 
 export default Picture;
