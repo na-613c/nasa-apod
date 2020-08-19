@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/nasa-apod/static/css/main.369dc695.chunk.css",
-    "main.js": "/nasa-apod/static/js/main.55685f6e.chunk.js",
-    "main.js.map": "/nasa-apod/static/js/main.55685f6e.chunk.js.map",
+    "main.js": "/nasa-apod/static/js/main.7db701eb.chunk.js",
+    "main.js.map": "/nasa-apod/static/js/main.7db701eb.chunk.js.map",
     "runtime-main.js": "/nasa-apod/static/js/runtime-main.42cfeb27.js",
     "runtime-main.js.map": "/nasa-apod/static/js/runtime-main.42cfeb27.js.map",
-    "static/css/2.8dbe6964.chunk.css": "/nasa-apod/static/css/2.8dbe6964.chunk.css",
-    "static/js/2.5e4ac5bd.chunk.js": "/nasa-apod/static/js/2.5e4ac5bd.chunk.js",
-    "static/js/2.5e4ac5bd.chunk.js.map": "/nasa-apod/static/js/2.5e4ac5bd.chunk.js.map",
+    "static/css/2.5215f976.chunk.css": "/nasa-apod/static/css/2.5215f976.chunk.css",
+    "static/js/2.b68b8eba.chunk.js": "/nasa-apod/static/js/2.b68b8eba.chunk.js",
+    "static/js/2.b68b8eba.chunk.js.map": "/nasa-apod/static/js/2.b68b8eba.chunk.js.map",
     "index.html": "/nasa-apod/index.html",
-    "precache-manifest.cb6918319d53079180b16e3594728751.js": "/nasa-apod/precache-manifest.cb6918319d53079180b16e3594728751.js",
+    "precache-manifest.613e49b961c2255e1442e79d1fc0c870.js": "/nasa-apod/precache-manifest.613e49b961c2255e1442e79d1fc0c870.js",
     "service-worker.js": "/nasa-apod/service-worker.js",
-    "static/css/2.8dbe6964.chunk.css.map": "/nasa-apod/static/css/2.8dbe6964.chunk.css.map",
+    "static/css/2.5215f976.chunk.css.map": "/nasa-apod/static/css/2.5215f976.chunk.css.map",
     "static/css/main.369dc695.chunk.css.map": "/nasa-apod/static/css/main.369dc695.chunk.css.map",
-    "static/js/2.5e4ac5bd.chunk.js.LICENSE.txt": "/nasa-apod/static/js/2.5e4ac5bd.chunk.js.LICENSE.txt",
+    "static/js/2.b68b8eba.chunk.js.LICENSE.txt": "/nasa-apod/static/js/2.b68b8eba.chunk.js.LICENSE.txt",
     "static/media/not_found.gif": "/nasa-apod/static/media/not_found.e9ff6ff5.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.42cfeb27.js",
-    "static/css/2.8dbe6964.chunk.css",
-    "static/js/2.5e4ac5bd.chunk.js",
+    "static/css/2.5215f976.chunk.css",
+    "static/js/2.b68b8eba.chunk.js",
     "static/css/main.369dc695.chunk.css",
-    "static/js/main.55685f6e.chunk.js"
+    "static/js/main.7db701eb.chunk.js"
   ]
 }
