@@ -4,8 +4,6 @@ import 'react-calendar/dist/Calendar.css';
 
 const CalendarContainer = ({onActiveStartDateChange, onChange, value}) => {
 
-
-
     return (
         <div className='App-calendar'>
             <Calendar

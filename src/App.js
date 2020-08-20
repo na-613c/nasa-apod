@@ -1,32 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import CalendarContainer from './components/Calendar/CalendarContainer';
 import GridPictures from './components/GridPictures/GridPictures';
 import BigImage from './components/BigImage/BigImage';
 import Content from './components/Content/Content';
-import defaultImages from './images/not_found.gif'
-import {getPicture} from './api/api';
 import 'react-calendar/dist/Calendar.css';
 import './App.css';
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {setImage} from "./redux/image-reducer";
+import {setModalImage} from "./redux/modal-reducer";
+import {setImagesArray} from "./redux/month-image-reducer";
+import {formatDate} from "./api/api";
 
 
-const App = () => {
-
-    const initImgState = {
-        url: null,
-        hdurl: null,
-        title: 'Загрузка',
-        date: '',
-        explanation: ''
-    };
-
-    const [img, setImg] = useState(initImgState);
-    const [month, setMonth] = useState([]);
-    const [isModal, setModal] = useState(false);
-    const [bigImg, setBigImg] = useState(initImgState);
-
-    const setModalImage = () => {
-        isModal ? setModal(false) : setModal(true);
-    };
+const App = ({image, modalImage, monthImages, isLoadMonthImages, setImage, setModalImage, setImagesArray}) => {
 
     const getDate = () => {
         return !localStorage.getItem('date')
@@ -35,48 +22,11 @@ const App = () => {
     };
 
     useEffect(() => {
-        queryOneImg(getDate());
-        queryMonthImg(getDate());
+        setImage(getDate());
+        setImagesArray(getDate());
     }, []);
 
-    const queryOneImg = async (value) => {
-        return setImg(await query(value));
-    };
-
-    const queryMonthImg = async (date = new Date()) => {
-        let daysInMonth = 32 - new Date(date.getFullYear(), date.getMonth(), 32).getDate();
-        let currentImg = [];
-        for (let i = 1; i <= daysInMonth; i++) {
-            let currentDate = new Date(date.getFullYear(), date.getMonth(), i);
-            currentImg.push(await query(currentDate));
-        }
-
-        Promise.all(currentImg).then(response =>setMonth(response));
-        return currentImg
-    };
-
-    const formatDate = (date) => {
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-
-        return `${year}-${month}-${day}`;
-    };
-
-    const query = async (value) => {
-        const response = await getPicture(formatDate(value));
-        let url = !response.url ? defaultImages : response.url;
-        return {
-            url: !response.hdurl ? defaultImages : url,
-            hdurl: !response.hdurl ? url : response.hdurl,
-            title: response.title,
-            date: response.date,
-            explanation: response.explanation
-        };
-    };
-
     let onChange = (value) => {
-        setImg(initImgState);
         const localDate = formatDate(value);
         const currentDate = formatDate(new Date());
 
@@ -84,18 +34,11 @@ const App = () => {
             ? localStorage.removeItem('date')
             : localStorage.setItem('date', value);
 
-        queryOneImg(value);
+        setImage(value);
     };
 
     const onActiveStartDateChange = ({activeStartDate, value, view}) => {
-        setMonth([]);
-        console.log(activeStartDate);
-        queryMonthImg(activeStartDate);
-    };
-
-    const setBigImage = (img) => {
-        setBigImg(img);
-        return setModalImage()
+        setImagesArray(activeStartDate);
     };
 
     return (
@@ -104,11 +47,22 @@ const App = () => {
                 onChange={onChange}
                 onActiveStartDateChange={onActiveStartDateChange}
                 value={getDate()}/>
-            <Content img={img} setBigImage={setBigImage}/>
-            <GridPictures imgArray={[...month]} setBigImage={setBigImage}/>
-            <BigImage src={bigImg} isModal={isModal} setBigImage={setModalImage}/>
+            <Content img={image} setBigImage={setModalImage}/>
+            <GridPictures imgArray={monthImages} setModal={setModalImage} isLoad={isLoadMonthImages}/>
+            <BigImage image={modalImage} setModal={setModalImage}/>
         </div>
     )
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+    image: state.imageReducer,
+    modalImage: state.modalReducer,
+    monthImages: state.monthImageReducer.imagesArray,
+    isLoadMonthImages: state.monthImageReducer.isLoad
+});
+
+const AppContainer = compose(
+    connect(mapStateToProps, {setImage, setModalImage, setImagesArray})
+)(App);
+
+export default AppContainer;

@@ -1,20 +1,18 @@
 import React from 'react';
 import Picture from './Picture/Picture';
 import Preloader from "../Preloader/Preloader";
-import {trackWindowScroll} from 'react-lazy-load-image-component';
 
 
-const GridPictures = ({imgArray, setBigImage, scrollPosition}) => {
+const GridPictures = ({imgArray, setModal, isLoad}) => {
 
-    let pictures = imgArray.filter(i => i.title)
+    const pictures = imgArray
         .map((i, id) => <Picture key={id}
-                                 setBigImage={setBigImage}
-                                 scrollPosition={scrollPosition}
+                                 setBigImage={setModal}
                                  img={i}/>);
 
     return (
         <>
-            {imgArray.length === 0
+            {isLoad
                 ? <Preloader/>
                 : <div className='App-all-content'>
                     {!imgArray ? '' : pictures}
@@ -23,4 +21,4 @@ const GridPictures = ({imgArray, setBigImage, scrollPosition}) => {
     )
 };
 
-export default trackWindowScroll(GridPictures);
+export default GridPictures;

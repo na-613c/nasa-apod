@@ -2,25 +2,25 @@ import React, {useState} from 'react';
 import Preloader from "../Preloader/Preloader";
 
 const Content = ({img, setBigImage}) => {
-    const [isShown, setIsShown] = useState(false);
+    const [isHide, setIsHide] = useState(true);
 
     return (
         <div className='App-content'>
             <div className='Content-img'>
-                {img.hdurl === null
+                {img.isLoad
                     ? <Preloader/>
                     : <img onClick={() => setBigImage(img)}
-                           onMouseOver={() => setIsShown(true)}
-                           onMouseOut={() => setIsShown(false)}
+                           onMouseOver={() => setIsHide(false)}
+                           onMouseOut={() => setIsHide(true)}
                            src={img.url}
                            alt={img.title}
                            title={!img.title ? '' : 'Нажмите для увеличения'}/>
                 }
             </div>
-            {(!isShown && img.hdurl !== null) && (
-                <Text title={!img.title ? 'Данных нет' : img.title}
-                      date={!img.date ? 'Возможно дата еще не наступила или нет сохраненных данных' : img.date}
-                      explanation={!img.explanation ? '' : img.explanation}/>
+            {(isHide && !img.isLoad) && (
+                <Text title={img.title}
+                      date={img.date}
+                      explanation={img.explanation}/>
             )}
         </div>
     );
