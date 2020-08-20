@@ -123,11 +123,21 @@
 }
 
 .modal__cross {
-    width: 20px;
-    height: 20px;
+    width: 2em;
+    height: 2em;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 5%;
+    right: 2em;
+    fill: #fcfcfc;
+    cursor: pointer;
+}
+
+.modal__download{
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: 5%;
+    right: 6em;
     fill: #fcfcfc;
     cursor: pointer;
 }
