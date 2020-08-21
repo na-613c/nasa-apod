@@ -1,11 +1,12 @@
-$size: 20vw;
+$size: 15vw;
+$max-width: 80vw;
 
 .App-all-content {
-  max-width: 90vw;
+  max-width: $max-width;
   margin: auto;
   grid-area: all;
   display: grid;
-  column-gap: $size;
+  column-gap: $size+5;
   grid-template-columns:  $size+1 $size+1;
   text-align: center;
   align-items: center;

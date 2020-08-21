@@ -112,19 +112,19 @@
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
-  max-width: 90vw;
+  max-width: 80vw;
   margin: auto;
   grid-area: all;
   display: grid;
   column-gap: 20vw;
-  grid-template-columns: 21vw 21vw;
+  grid-template-columns: 16vw 16vw;
   text-align: center;
   align-items: center;
 }
 
 .App-all-content img {
-  height: 20vw;
-  width: 20vw;
+  height: 15vw;
+  width: 15vw;
   margin-bottom: 0.5vw;
   object-fit: cover;
 }
@@ -169,6 +169,7 @@
 .item:hover {
   transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
   box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .background-modal-image {
@@ -219,7 +220,7 @@ body {
 
 .App-wrapper {
   margin: 2vh auto 5vh auto;
-  width: 90vw;
+  width: 80vw;
   display: grid;
   grid-template-areas: "calendar content" "all all";
   grid-template-rows: 1fr auto;

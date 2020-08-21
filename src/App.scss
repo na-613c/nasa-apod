@@ -11,7 +11,7 @@ body{
 
 .App-wrapper {
   margin: 2vh auto 5vh auto;
-  width: 90vw;
+  width: $max-width;
   display: grid;
   grid-template-areas: "calendar content" "all all";
   grid-template-rows: 1fr auto;
