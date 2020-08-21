@@ -1,0 +1,39 @@
+.modal__cross {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 5%;
+  right: 2em;
+  fill: #fcfcfc;
+  cursor: pointer;
+}
+
+.modal__download {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 5%;
+  right: 6em;
+  fill: #fcfcfc;
+  cursor: pointer;
+}
+
+.arrow__left {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 40%;
+  left: 2em;
+  fill: #fcfcfc;
+  cursor: pointer;
+}
+
+.arrow__right {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 40%;
+  right: 2em;
+  fill: #fcfcfc;
+  cursor: pointer;
+}

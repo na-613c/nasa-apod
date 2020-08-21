@@ -8,8 +8,21 @@ import DownloadButton from "../Common/Buttons/DownloadButton";
 
 const ModalImage = ({images, setModal, movePrev, moveNext}) => {
 
+    const bg_class = 'background-modal-image';
+    const modal_content = 'modal-content';
+    const modal_image_content = 'modal-image-content';
+
+
     const onClickSetBigImage = (e) => {
-        if (e.target.className === 'background-big-image') setModal();
+        const targetClass = e.target.className;
+
+        switch (targetClass) {
+            case  bg_class :
+            case  modal_content :
+            case  modal_image_content :
+                return setModal();
+        }
+
     };
 
     const image = images.viewedImages[images.key];
@@ -17,25 +30,29 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
     return (
         <>
             {(images.isShow) &&
-            <div className='background-big-image'
-                 key={images.key}
-                 onClick={onClickSetBigImage}>
+            <div className={bg_class}
+                 onClick={onClickSetBigImage}
+                 key={images.key}>
 
-                {images.isShowPrev &&
-                <PrevImageButton
-                    onClick={() => movePrev(images.key, images.viewedImages)}/>
-                }
+                <div className={modal_content}>
 
-                {images.isShowNext &&
-                <NextImageButton
-                    onClick={() => moveNext(images.key, images.viewedImages)}/>
-                }
+                    <div className={modal_image_content}>
+                        {images.isShowPrev &&
+                        <PrevImageButton
+                            onClick={() => movePrev(images.key, images.viewedImages)}/>
+                        }
 
-                <CloseButton onClick={setModal}/>
-                <DownloadButton url={image.hdurl}/>
+                        {images.isShowNext &&
+                        <NextImageButton
+                            onClick={() => moveNext(images.key, images.viewedImages)}/>
+                        }
 
-                <div className='big-image'>
-                    <img src={image.url} alt=''/>
+                        <CloseButton onClick={setModal}/>
+                        <DownloadButton url={image.hdurl}/>
+
+                        <img src={image.url} alt=''/>
+                    </div>
+
                     <p>{image.title} [ {image.date} ]</p>
                 </div>
             </div>}

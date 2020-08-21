@@ -1,0 +1,51 @@
+@import "../../Style/Color";
+
+@mixin height {
+  height: 280px;
+}
+
+.App-content {
+  grid-area: content;
+  @include box-shadow;
+  padding: 9px 10px 11px 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  @include background;
+}
+
+.info span{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Content-img {
+  height: 100%;
+  width: 100%;
+  display: inline;
+}
+
+.Content-img img {
+  float: left;
+  margin-right: 10px;
+  height: 258px;
+  width: 258px;
+  object-fit: cover;
+  @include border;
+}
+
+.Content-img img:hover {
+  width: 100%;
+  transition: 0.3s all;
+  margin-right: 0;
+}
+
+
+.Explanation{
+  height: 190px;
+  text-overflow: ellipsis;
+  overflow-y: auto;
+}

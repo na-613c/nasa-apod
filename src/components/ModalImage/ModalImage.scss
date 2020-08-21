@@ -1,0 +1,45 @@
+@mixin center{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+
+.background-modal-image {
+  transform: translate(-50%, -50%);
+  @include center;
+  height: 100.1%;
+  width: 100.1%;
+  background: rgba(1, 1, 1, 0.8);
+  opacity: 0;
+  transition: .5s;
+  animation: show .6s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.background-modal-image p {
+  color: azure;
+}
+
+.modal-content {
+  width: 100%;
+  @include center;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.modal-image-content img {
+  height: 80vh;
+  max-width: 80vw;
+  object-fit: contain;
+}

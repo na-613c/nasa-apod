@@ -27,11 +27,11 @@ const Content = ({img, setModal}) => {
 
 const Text = ({title, date, explanation}) => {
     return (
-        <>
+        <div className='info'>
             <span><b>{title}</b></span>
             <p>{date}</p>
             <p className='Explanation'>{explanation}</p>
-        </>
+        </div>
     )
 };
 

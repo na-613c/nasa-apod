@@ -1,0 +1,19 @@
+$size: 20vw;
+
+.App-all-content {
+  max-width: 90vw;
+  margin: auto;
+  grid-area: all;
+  display: grid;
+  column-gap: $size;
+  grid-template-columns:  $size+1 $size+1;
+  text-align: center;
+  align-items: center;
+}
+
+.App-all-content img {
+  height: $size;
+  width: $size;
+  margin-bottom: .5vw;
+  object-fit: cover;
+}

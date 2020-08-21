@@ -1,0 +1,54 @@
+@mixin button {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  fill: #fcfcfc;
+  cursor: pointer;
+}
+
+$padding: 3em;
+
+@mixin vertical-center {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.modal__cross {
+  @include button;
+  right: $padding;
+}
+
+.title {
+  display: inline-block;
+}
+
+.title:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  width: 6em;
+  margin: auto;
+  left: -2em;
+  bottom: 2.5em;
+  z-index: 1;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+
+.modal__download {
+  @include button;
+  right: $padding*2.2;
+}
+
+.arrow__left {
+  @include button;
+  @include vertical-center;
+  left: $padding;
+}
+
+.arrow__right {
+  @include button;
+  @include vertical-center;
+  right: $padding;
+}

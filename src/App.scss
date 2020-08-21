@@ -1,0 +1,45 @@
+@import "./Style/Color";
+@import "./components/Common/Buttons/Buttons";
+@import "./components/Content/Content";
+@import "./components/GridPictures/GridPicture";
+@import "./components/GridPictures/Picture/Picture";
+@import "./components/ModalImage/ModalImage";
+
+body{
+  @include background-body;
+}
+
+.App-wrapper {
+  margin: 2vh auto 5vh auto;
+  width: 90vw;
+  display: grid;
+  grid-template-areas: "calendar content" "all all";
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 50px 10px;
+  position: relative;
+}
+
+.react-calendar__year-view .react-calendar__tile, .react-calendar__decade-view .react-calendar__tile, .react-calendar__century-view .react-calendar__tile{
+  padding: 1.5em 0.5em;
+}
+
+.react-calendar{
+  @include height;
+  width: 350px;
+}
+
+.App-calendar {
+  grid-area: calendar;
+}
+
+
+.preloader {
+  grid-area: all;
+  text-align: center;
+  height: 293px;
+}
+
+.preloader img {
+  height: 293px;
+}

@@ -1,217 +1,253 @@
-.App-wrapper {
-    margin: 2% auto 5% auto;
-    width: 1280px;
-    display: grid;
-    grid-template-areas: "calendar content" "all all";
-    grid-template-rows: 1fr auto;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 50px 10px;
-    position: relative;
+.modal__cross {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  fill: #fcfcfc;
+  cursor: pointer;
+  right: 3em;
 }
 
-.App-calendar {
-    grid-area: calendar;
-    margin-bottom: 10px;
-    box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
-    padding: 35px;
-    background: white;
+.title {
+  display: inline-block;
+}
+
+.title:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  width: 6em;
+  margin: auto;
+  left: -2em;
+  bottom: 2.5em;
+  z-index: 1;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.modal__download {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  fill: #fcfcfc;
+  cursor: pointer;
+  right: 6.6em;
+}
+
+.arrow__left {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  fill: #fcfcfc;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 3em;
+}
+
+.arrow__right {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  fill: #fcfcfc;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 3em;
 }
 
 .App-content {
-    grid-area: content;
-    margin-bottom: 10px;
-    box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
-    padding: 35px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: white;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: content;
+  box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #a0a096;
+  padding: 9px 10px 11px 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: white;
 }
 
-.App-content span{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.App-all-content {
-    max-width: 960px;
-    margin: auto;
-    grid-area: all;
-    display: grid;
-    column-gap: 300px;
-    grid-template-columns: 320px 320px;
-    text-align: center;
-    align-items: center;
-}
-
-.App-all-content img {
-    height: 300px;
-    width: 300px;
-    margin-bottom: 10px;
-    object-fit: cover;
+.info span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Content-img {
-    height: 100%;
-    width: 100%;
-    display: inline;
+  height: 100%;
+  width: 100%;
+  display: inline;
 }
 
 .Content-img img {
-    float: left;
-    margin-right: 10px;
-    height: 100%;
-    width: 308px;
-    object-fit: cover;
+  float: left;
+  margin-right: 10px;
+  height: 258px;
+  width: 258px;
+  object-fit: cover;
+  border: 1px solid #a0a096;
 }
 
 .Content-img img:hover {
-    width: 100%;
-    transition: 0.3s all;
-    margin-right: 0;
+  width: 100%;
+  transition: 0.3s all;
+  margin-right: 0;
 }
 
-@keyframes show {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.Explanation {
+  height: 190px;
+  text-overflow: ellipsis;
+  overflow-y: auto;
 }
 
-.big-image {
-    max-height: 90%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    border-radius: 3px;
+.App-all-content {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  max-width: 90vw;
+  margin: auto;
+  grid-area: all;
+  display: grid;
+  column-gap: 20vw;
+  grid-template-columns: 21vw 21vw;
+  text-align: center;
+  align-items: center;
 }
 
-.background-big-image {
-    transform: translate(-50%, -50%);
-    z-index: 29;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    height: 100.1%;
-    width: 100.1%;
-    background: rgba(1, 1, 1, 0.8);
-    opacity: 0;
-    transition: .5s;
-    animation: show .6s 1;
-    animation-fill-mode: forwards;
-}
-
-.background-big-image p{
-    color: azure;
-}
-
-.Explanation{
-    height: 78%;
-    text-overflow: ellipsis;
-    overflow-y: auto;
-}
-
-.big-image img {
-    max-height: 80vh;
-    object-fit: contain;
-}
-
-.modal__cross {
-    width: 2em;
-    height: 2em;
-    position: absolute;
-    top: 5%;
-    right: 2em;
-    fill: #fcfcfc;
-    cursor: pointer;
-}
-
-.modal__download{
-    width: 2em;
-    height: 2em;
-    position: absolute;
-    top: 5%;
-    right: 6em;
-    fill: #fcfcfc;
-    cursor: pointer;
-}
-
-.arrow__left{
-    width: 2em;
-    height: 2em;
-    position: absolute;
-    top: 40%;
-    left: 2em;
-    fill: #fcfcfc;
-    cursor: pointer;
-}
-
-.arrow__right{
-    width: 2em;
-    height: 2em;
-    position: absolute;
-    top:  40%;
-    right: 2em;
-    fill: #fcfcfc;
-    cursor: pointer;
-}
-
-
-.preloader {
-    grid-area: all;
-    text-align: center;
-    height: 293px;
-}
-
-.preloader img {
-    height: 293px;
+.App-all-content img {
+  height: 20vw;
+  width: 20vw;
+  margin-bottom: 0.5vw;
+  object-fit: cover;
 }
 
 .item {
-    text-decoration: none;
-    display: absolute;
-    display: block;
-    height: 100%;
-    background: #fff;
-    text-align: left;
-    padding: 10px;
-    transform: rotate(-30deg) skew(25deg) translate(0, 0);
-    transition: .5s;
-    box-shadow: -20px 20px 10px rgba(0, 0, 0, .5);
+  text-decoration: none;
+  display: absolute;
+  display: block;
+  height: 100%;
+  background: #fff;
+  text-align: left;
+  padding: 0.5vw;
+  transform: rotate(-30deg) skew(25deg) translate(0, 0);
+  transition: 0.5s;
+  box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
 }
 
 .item:before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: -20px;
-    height: 100%;
-    width: 20px;
-    background: #b1b1b1;
-    transform: .5s;
-    transform: rotate(0deg) skewY(-45deg);
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  height: 100%;
+  width: 20px;
+  background: #b1b1b1;
+  transform: 0.5s;
+  transform: rotate(0deg) skewY(-45deg);
 }
 
 .item:after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: -10px;
-    height: 20px;
-    width: 100%;
-    background: #b1b1b1;
-    transform: .5s;
-    transform: rotate(0deg) skewX(-45deg);
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  height: 20px;
+  width: 100%;
+  background: #b1b1b1;
+  transform: 0.5s;
+  transform: rotate(0deg) skewX(-45deg);
 }
 
 .item:hover {
-    transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
-    box-shadow: -50px 50px 50px rgba(0, 0, 0, .5);
+  transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
+  box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+.background-modal-image {
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 100.1%;
+  width: 100.1%;
+  background: rgba(1, 1, 1, 0.8);
+  opacity: 0;
+  transition: 0.5s;
+  animation: show 0.6s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.background-modal-image p {
+  color: azure;
+}
+
+.modal-content {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.modal-image-content img {
+  height: 80vh;
+  max-width: 80vw;
+  object-fit: contain;
+}
+
+body {
+  background: #ccc;
+}
+
+.App-wrapper {
+  margin: 2vh auto 5vh auto;
+  width: 90vw;
+  display: grid;
+  grid-template-areas: "calendar content" "all all";
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 50px 10px;
+  position: relative;
+}
+
+.react-calendar__year-view .react-calendar__tile, .react-calendar__decade-view .react-calendar__tile, .react-calendar__century-view .react-calendar__tile {
+  padding: 1.5em 0.5em;
+}
+
+.react-calendar {
+  height: 280px;
+  width: 350px;
+}
+
+.App-calendar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: calendar;
+}
+
+.preloader {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: all;
+  text-align: center;
+  height: 293px;
+}
+
+.preloader img {
+  height: 293px;
 }
