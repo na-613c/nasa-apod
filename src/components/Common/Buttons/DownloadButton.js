@@ -2,7 +2,7 @@ import React from "react";
 
 const DownloadButton = ({url}) => {
     return (
-        <div className='modal__download title' data-title="Скачать">
+        <div className='modal__download  title' data-title="Скачать">
             <a href={url} target='_blank' download>
                 <svg viewBox="0 0 16 16"
                      xmlns="http://www.w3.org/2000/svg">

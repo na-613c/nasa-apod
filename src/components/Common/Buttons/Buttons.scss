@@ -41,6 +41,10 @@ $padding: 3em;
   right: $padding*2.2;
 }
 
+.modal__download a:visited {
+  fill: #fcfcfc;
+}
+
 .arrow__left {
   @include button;
   @include vertical-center;

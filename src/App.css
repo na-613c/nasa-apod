@@ -32,6 +32,10 @@
   right: 6.6em;
 }
 
+.modal__download a:visited {
+  fill: #fcfcfc;
+}
+
 .arrow__left {
   width: 2em;
   height: 2em;
