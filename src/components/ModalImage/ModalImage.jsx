@@ -50,7 +50,9 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
                         <CloseButton onClick={setModal}/>
                         <DownloadButton url={image.hdurl}/>
 
-                        <img src={image.url} alt=''/>
+                        <div className='image-explanation' data-title={image.explanation}>
+                            <img src={image.url} alt='' className='image-explanation' data-title={image.explanation}/>
+                        </div>
                     </div>
 
                     <p>{image.title} [ {image.date} ]</p>
