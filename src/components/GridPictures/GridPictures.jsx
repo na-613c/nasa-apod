@@ -1,6 +1,6 @@
 import React from 'react';
 import Picture from './Picture/Picture';
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../Common/Preloader/Preloader";
 
 
 const GridPictures = ({imgArray, setModal, isLoad}) => {

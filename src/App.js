@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import CalendarContainer from './components/Calendar/CalendarContainer';
 import GridPictures from './components/GridPictures/GridPictures';
-import BigImage from './components/BigImage/BigImage';
+import ModalImage from './components/ModalImage/ModalImage';
 import Content from './components/Content/Content';
 import 'react-calendar/dist/Calendar.css';
 import './App.css';
@@ -49,7 +49,7 @@ const App = ({image, modalImage, monthImages, isLoadMonthImages, setImage, setMo
                 value={getDate()}/>
             <Content img={image} setBigImage={setModalImage}/>
             <GridPictures imgArray={monthImages} setModal={setModalImage} isLoad={isLoadMonthImages}/>
-            <BigImage image={modalImage} setModal={setModalImage}/>
+            <ModalImage image={modalImage} setModal={setModalImage}/>
         </div>
     )
 };

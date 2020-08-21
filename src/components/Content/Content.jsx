@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../Common/Preloader/Preloader";
 
 const Content = ({img, setBigImage}) => {
     const [isHide, setIsHide] = useState(true);
