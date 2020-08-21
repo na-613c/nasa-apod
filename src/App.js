@@ -8,13 +8,15 @@ import './App.css';
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {setImage} from "./redux/image-reducer";
-import {setModalImage} from "./redux/modal-reducer";
+import {moveNext, movePrev, setModalImage, setModalImages} from "./redux/modal-reducer";
 import {setImagesArray} from "./redux/month-image-reducer";
 import {formatDate} from "./api/api";
 
 
-const App = ({image, modalImage, monthImages, isLoadMonthImages, setImage, setModalImage, setImagesArray}) => {
-
+const App = ({
+                 image, modalImages, monthImages, isLoadMonthImages, setImage, setModalImage,
+                 setImagesArray, setModalImages, movePrev, moveNext
+             }) => {
     const getDate = () => {
         return !localStorage.getItem('date')
             ? new Date()
@@ -47,22 +49,29 @@ const App = ({image, modalImage, monthImages, isLoadMonthImages, setImage, setMo
                 onChange={onChange}
                 onActiveStartDateChange={onActiveStartDateChange}
                 value={getDate()}/>
-            <Content img={image} setBigImage={setModalImage}/>
-            <GridPictures imgArray={monthImages} setModal={setModalImage} isLoad={isLoadMonthImages}/>
-            <ModalImage image={modalImage} setModal={setModalImage}/>
+            <Content img={image} setModal={setModalImage}/>
+            <GridPictures imgArray={monthImages} setModal={setModalImages} isLoad={isLoadMonthImages}/>
+            <ModalImage images={modalImages} setModal={setModalImage} movePrev={movePrev} moveNext={moveNext}/>
         </div>
     )
 };
 
 const mapStateToProps = (state) => ({
     image: state.imageReducer,
-    modalImage: state.modalReducer,
+    modalImages: state.modalReducer,
     monthImages: state.monthImageReducer.imagesArray,
     isLoadMonthImages: state.monthImageReducer.isLoad
 });
 
 const AppContainer = compose(
-    connect(mapStateToProps, {setImage, setModalImage, setImagesArray})
+    connect(mapStateToProps, {
+        setImage,
+        setModalImage,
+        setModalImages,
+        setImagesArray,
+        movePrev,
+        moveNext
+    })
 )(App);
 
 export default AppContainer;

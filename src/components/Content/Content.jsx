@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import Preloader from "../Common/Preloader/Preloader";
 
-const Content = ({img, setBigImage}) => {
+const Content = ({img, setModal}) => {
     const [isHide, setIsHide] = useState(true);
-
     return (
         <div className='App-content'>
             <div className='Content-img'>
                 {img.isLoad
                     ? <Preloader/>
-                    : <img onClick={() => setBigImage(img)}
+                    : <img onClick={() => setModal([img])}
                            onMouseOver={() => setIsHide(false)}
                            onMouseOut={() => setIsHide(true)}
                            src={img.url}

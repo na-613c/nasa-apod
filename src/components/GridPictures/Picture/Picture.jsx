@@ -2,10 +2,15 @@ import React from 'react';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const Picture = ({img, setBigImage}) => {
+const Picture = ({img, setModal, imgArray, id}) => {
+
+    const setModalImages = () => {
+        setModal(imgArray, id)
+    };
+
 
     return (
-        <div className='item' onClick={() => setBigImage(img)}>
+        <div className='item' onClick={setModalImages}>
             <LazyLoadImage alt={img.title}
                            effect="blur"
                            src={img.url}

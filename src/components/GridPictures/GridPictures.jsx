@@ -5,9 +5,13 @@ import Preloader from "../Common/Preloader/Preloader";
 
 const GridPictures = ({imgArray, setModal, isLoad}) => {
 
+
+
     const pictures = imgArray
         .map((i, id) => <Picture key={id}
-                                 setBigImage={setModal}
+                                 id={id}
+                                 imgArray={imgArray}
+                                 setModal={setModal}
                                  img={i}/>);
 
     return (
