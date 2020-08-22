@@ -50,6 +50,16 @@
   right: 4em;
 }
 
+.modal__info {
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  fill: #c9c9c9;
+  cursor: pointer;
+  position: absolute;
+  left: -4em;
+}
+
 .modal__download {
   width: 3em;
   height: 3em;
@@ -60,7 +70,7 @@
 }
 
 .modal__download a:visited {
-  fill: #fcfcfc;
+  fill: #c9c9c9;
 }
 
 .arrow__left {
@@ -90,6 +100,7 @@
 .arrow__right:hover,
 .arrow__left:hover,
 .modal__cross:hover,
+.modal__info:hover,
 .modal__download a:hover {
   fill: #fcfcfc;
 }

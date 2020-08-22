@@ -6,3 +6,4 @@ export const closeButton = "Close";
 export const downloadButton = "Download";
 export const nextImageButton = "Next";
 export const prevImageButton = "Previous";
+export const infoButton = "More information";

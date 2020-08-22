@@ -1,10 +1,11 @@
 $padding: 4em;
+$button-color: #c9c9c9;
 
 @mixin button {
   width: 3em;
   height: 3em;
   position: absolute;
-  fill: #c9c9c9;
+  fill: $button-color;
   cursor: pointer;
 }
 
@@ -18,7 +19,7 @@ $padding: 4em;
   display: inline-block;
 }
 
-@mixin slideUp{
+@mixin slideUp {
   animation-name: slideUp;
   -webkit-animation-name: slideUp;
 
@@ -35,16 +36,16 @@ $padding: 4em;
   0% {
     transform: translateY(100%);
   }
-  50%{
+  50% {
     transform: translateY(-8%);
   }
-  65%{
+  65% {
     transform: translateY(4%);
   }
-  80%{
+  80% {
     transform: translateY(-4%);
   }
-  95%{
+  95% {
     transform: translateY(2%);
   }
   100% {
@@ -70,13 +71,19 @@ $padding: 4em;
   right: $padding;
 }
 
+.modal__info {
+  @include button;
+  position: absolute;
+  left: -$padding;
+}
+
 .modal__download {
   @include button;
   right: $padding*2.2;
 }
 
 .modal__download a:visited {
-  fill: #fcfcfc;
+  fill: $button-color;
 }
 
 .arrow__left {
@@ -94,6 +101,7 @@ $padding: 4em;
 .arrow__right:hover,
 .arrow__left:hover,
 .modal__cross:hover,
+.modal__info:hover,
 .modal__download a:hover {
   fill: #fcfcfc;
 }
