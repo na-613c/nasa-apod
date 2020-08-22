@@ -4,55 +4,15 @@
   left: 50%;
 }
 
-.background-modal-image {
-  transform: translate(-50%, -50%);
-  @include center;
-  height: 100.1%;
-  width: 100.1%;
-  background: rgba(1, 1, 1, 0.8);
-  opacity: 0;
-  transition: .5s;
-  animation: show .4s 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.background-modal-image p {
-  color: azure;
-}
-
-.modal-content {
-  width: 100%;
-  @include center;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  border-radius: 3px;
-}
-
-.modal-image-content img {
+@mixin modal-image-content {
   height: 80vh;
-  max-width: 80vw;
   object-fit: contain;
 }
 
-.image-explanation {
-  display: inline-block;
-  position: relative;
-}
-
-.image-explanation div{
+@mixin explanation{
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 2px;
   z-index: 1;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
@@ -63,19 +23,13 @@
   border: 1px solid #000000;
 }
 
-.pullUp{
-  animation-name: pullUp;
-  -webkit-animation-name: pullUp;
-
-  animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-
-  animation-timing-function: ease-out;
-  -webkit-animation-timing-function: ease-out;
-
-  transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  -webkit-transform-origin: 50% 100%;
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes pullUp {
@@ -100,4 +54,103 @@
   100% {
     transform: scaleY(1);
   }
+}
+
+@keyframes pullDown {
+  0% {
+    transform: scaleY(0.1);
+  }
+  40% {
+    transform: scaleY(1.02);
+  }
+  60% {
+    transform: scaleY(0.98);
+  }
+  80% {
+    transform: scaleY(1.01);
+  }
+  100% {
+    transform: scaleY(0.98);
+  }
+  80% {
+    transform: scaleY(1.01);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.background-modal-image {
+  transform: translate(-50%, -50%);
+  @include center;
+  height: 100.1%;
+  width: 100.1%;
+  background: rgba(1, 1, 1, 0.8);
+  opacity: 0;
+  transition: .5s;
+  animation: show .4s 1;
+  animation-fill-mode: forwards;
+}
+
+.background-modal-image p {
+  color: azure;
+}
+
+.modal-content {
+  width: 100%;
+  @include center;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.modal-image-content img {
+  @include modal-image-content;
+  max-width: 80vw;
+}
+
+.modal-image-content iframe {
+  @include modal-image-content;
+  width: 70vw;
+}
+
+.image-explanation {
+  display: inline-block;
+  position: relative;
+}
+
+.pullUp {
+  @include explanation;
+  bottom: 4px;
+
+  animation-name: pullUp;
+  -webkit-animation-name: pullUp;
+
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+
+  transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+}
+
+.pullDown{
+  @include explanation;
+  top: 0;
+
+  animation-name: pullDown;
+  -webkit-animation-name: pullDown;
+
+  animation-duration: 3s;
+  -webkit-animation-duration: 3s;
+
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+
+  transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
 }

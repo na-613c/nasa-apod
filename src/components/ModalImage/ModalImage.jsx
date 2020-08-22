@@ -4,6 +4,7 @@ import CloseButton from "../Common/Buttons/CloseButton";
 import PrevImageButton from "../Common/Buttons/PrevImageButton";
 import NextImageButton from "../Common/Buttons/NextImageButton";
 import DownloadButton from "../Common/Buttons/DownloadButton";
+import ImageVideoFlow from "../Common/ImageVideoFlow/ImageVideoFlow";
 
 
 const ModalImage = ({images, setModal, movePrev, moveNext}) => {
@@ -56,12 +57,13 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
                              onMouseLeave={() => setIsShowExplanation(false)}>
 
                             {isShowExplanation &&
-                            <div className='pullUp'>
-                                {image.explanation}
-                            </div>
+                            <Explanation media_type={image.media_type} explanation={image.explanation}/>
                             }
 
-                            <img src={image.url} alt='' className='image-explanation' />
+                            <ImageVideoFlow media_type={image.media_type}
+                                            title={image.title}
+                                            url={image.url}/>
+
                         </div>
                     </div>
 
@@ -70,6 +72,15 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
             </div>}
         </>
     )
+};
+
+const Explanation = ({media_type, explanation}) => {
+    switch (media_type) {
+        case 'image':
+            return <div className='pullUp'> {explanation} </div>;
+        case 'video':
+            return <div className='pullDown'>{explanation}</div>;
+    }
 };
 
 export default ModalImage;

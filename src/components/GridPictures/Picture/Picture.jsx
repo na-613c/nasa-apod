@@ -1,20 +1,14 @@
 import React from 'react';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import ImageVideoFlow from "../../Common/ImageVideoFlow/ImageVideoFlow";
 
 const Picture = ({img, setModal, imgArray, id}) => {
 
-    const setModalImages = () => {
-        setModal(imgArray, id)
-    };
-
+    const setModalImages = () => setModal(imgArray, id);
 
     return (
         <div className='item' onClick={setModalImages}>
-            <LazyLoadImage alt={img.title}
-                           effect="blur"
-                           src={img.url}
-                           visibleByDefault={true}/>
+            <ImageVideoFlow media_type={img.media_type} title={img.title} url={img.url}/>
             <p><b>{img.title}</b></p>
             <p>{img.date}</p>
         </div>

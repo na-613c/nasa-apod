@@ -6,6 +6,7 @@ const MOVE_ARRAY = 'MOVE-ARRAY';
 const initImageState = {
     url: defaultImages,
     hdurl: defaultImages,
+    media_type:"image",
     title: 'Данных нет',
     date: 'Возможно дата еще не наступила или нет сохраненных данных',
     explanation: ''

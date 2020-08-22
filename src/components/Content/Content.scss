@@ -16,7 +16,7 @@
   @include background;
 }
 
-.info span{
+.info span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -35,6 +35,14 @@
   width: 258px;
   object-fit: cover;
   @include border;
+  cursor: pointer;
+}
+.Content-img iframe {
+  float: left;
+  margin-right: 10px;
+  height: 258px;
+  object-fit: cover;
+  @include border;
 }
 
 .Content-img img:hover {
@@ -44,7 +52,7 @@
 }
 
 
-.Explanation{
+.Explanation {
   height: 190px;
   text-overflow: ellipsis;
   overflow-y: auto;

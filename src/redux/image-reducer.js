@@ -8,6 +8,7 @@ const initImgState = {
     isLoad: false,
     url: defaultImages,
     hdurl: defaultImages,
+    media_type:"image",
     title: 'Данных нет',
     date: 'Возможно дата еще не наступила или нет сохраненных данных',
     explanation: ''
@@ -20,6 +21,7 @@ const imageReducer = (state = initImgState, action) => {
                 ...state,
                 url: action.newImage.url,
                 hdurl: action.newImage.hdurl,
+                media_type: action.newImage.media_type,
                 title: action.newImage.title,
                 date: action.newImage.date,
                 explanation: action.newImage.explanation,

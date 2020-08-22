@@ -7,12 +7,12 @@ $max-width: 80vw;
   grid-area: all;
   display: grid;
   column-gap: $size+5;
-  grid-template-columns:  $size+1 $size+1;
+  grid-template-columns: $size+1 $size+1;
   text-align: center;
   align-items: center;
 }
 
-.App-all-content img {
+.App-all-content img, .App-all-content iframe {
   height: $size;
   width: $size;
   margin-bottom: .5vw;

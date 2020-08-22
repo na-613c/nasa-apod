@@ -1,35 +1,62 @@
-.modal__cross {
-  width: 2em;
-  height: 2em;
-  position: absolute;
-  fill: #fcfcfc;
-  cursor: pointer;
-  right: 3em;
-}
-
 .title {
   display: inline-block;
 }
 
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(-8%);
+  }
+  65% {
+    transform: translateY(4%);
+  }
+  80% {
+    transform: translateY(-4%);
+  }
+  95% {
+    transform: translateY(2%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
 .title:hover::after {
   content: attr(data-title);
   position: absolute;
-  width: 6em;
+  width: 7em;
   margin: auto;
   left: -2em;
-  bottom: 2.5em;
+  bottom: 3.5em;
   z-index: 1;
   color: #fff;
   font-family: Arial, sans-serif;
+  animation-name: slideUp;
+  -webkit-animation-name: slideUp;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+  visibility: visible !important;
+}
+
+.modal__cross {
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  fill: #c9c9c9;
+  cursor: pointer;
+  right: 4em;
 }
 
 .modal__download {
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
   position: absolute;
-  fill: #fcfcfc;
+  fill: #c9c9c9;
   cursor: pointer;
-  right: 6.6em;
+  right: 8.8em;
 }
 
 .modal__download a:visited {
@@ -37,27 +64,34 @@
 }
 
 .arrow__left {
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
   position: absolute;
-  fill: #fcfcfc;
+  fill: #c9c9c9;
   cursor: pointer;
   top: 0;
   bottom: 0;
   margin: auto;
-  left: 3em;
+  left: 4em;
 }
 
 .arrow__right {
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
   position: absolute;
-  fill: #fcfcfc;
+  fill: #c9c9c9;
   cursor: pointer;
   top: 0;
   bottom: 0;
   margin: auto;
-  right: 3em;
+  right: 4em;
+}
+
+.arrow__right:hover,
+.arrow__left:hover,
+.modal__cross:hover,
+.modal__download a:hover {
+  fill: #fcfcfc;
 }
 
 .App-content {
@@ -94,6 +128,15 @@
   width: 258px;
   object-fit: cover;
   border: 1px solid #a0a096;
+  cursor: pointer;
+}
+
+.Content-img iframe {
+  float: left;
+  margin-right: 10px;
+  height: 258px;
+  object-fit: cover;
+  border: 1px solid #a0a096;
 }
 
 .Content-img img:hover {
@@ -122,7 +165,7 @@
   align-items: center;
 }
 
-.App-all-content img {
+.App-all-content img, .App-all-content iframe {
   height: 15vw;
   width: 15vw;
   margin-bottom: 0.5vw;
@@ -172,20 +215,6 @@
   cursor: pointer;
 }
 
-.background-modal-image {
-  transform: translate(-50%, -50%);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  height: 100.1%;
-  width: 100.1%;
-  background: rgba(1, 1, 1, 0.8);
-  opacity: 0;
-  transition: 0.5s;
-  animation: show 0.4s 1;
-  animation-fill-mode: forwards;
-}
-
 @keyframes show {
   0% {
     opacity: 0;
@@ -194,58 +223,6 @@
     opacity: 1;
   }
 }
-.background-modal-image p {
-  color: azure;
-}
-
-.modal-content {
-  width: 100%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  border-radius: 3px;
-}
-
-.modal-image-content img {
-  height: 80vh;
-  max-width: 80vw;
-  object-fit: contain;
-}
-
-.image-explanation {
-  display: inline-block;
-  position: relative;
-}
-
-.image-explanation div {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 2px;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  font-size: 15px;
-  padding: 5px 10px;
-  border: 1px solid #000000;
-}
-
-.pullUp {
-  animation-name: pullUp;
-  -webkit-animation-name: pullUp;
-  animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  animation-timing-function: ease-out;
-  -webkit-animation-timing-function: ease-out;
-  transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  -webkit-transform-origin: 50% 100%;
-}
-
 @keyframes pullUp {
   0% {
     transform: scaleY(0.1);
@@ -269,6 +246,122 @@
     transform: scaleY(1);
   }
 }
+@keyframes pullDown {
+  0% {
+    transform: scaleY(0.1);
+  }
+  40% {
+    transform: scaleY(1.02);
+  }
+  60% {
+    transform: scaleY(0.98);
+  }
+  80% {
+    transform: scaleY(1.01);
+  }
+  100% {
+    transform: scaleY(0.98);
+  }
+  80% {
+    transform: scaleY(1.01);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+.background-modal-image {
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 100.1%;
+  width: 100.1%;
+  background: rgba(1, 1, 1, 0.8);
+  opacity: 0;
+  transition: 0.5s;
+  animation: show 0.4s 1;
+  animation-fill-mode: forwards;
+}
+
+.background-modal-image p {
+  color: azure;
+}
+
+.modal-content {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.modal-image-content img {
+  height: 80vh;
+  object-fit: contain;
+  max-width: 80vw;
+}
+
+.modal-image-content iframe {
+  height: 80vh;
+  object-fit: contain;
+  width: 70vw;
+}
+
+.image-explanation {
+  display: inline-block;
+  position: relative;
+}
+
+.pullUp {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  padding: 5px 10px;
+  border: 1px solid #000000;
+  bottom: 4px;
+  animation-name: pullUp;
+  -webkit-animation-name: pullUp;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+  transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+}
+
+.pullDown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  padding: 5px 10px;
+  border: 1px solid #000000;
+  top: 0;
+  animation-name: pullDown;
+  -webkit-animation-name: pullDown;
+  animation-duration: 3s;
+  -webkit-animation-duration: 3s;
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+  transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+}
+
 body {
   background: #ccc;
 }

@@ -1,12 +1,12 @@
+$padding: 4em;
+
 @mixin button {
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
   position: absolute;
-  fill: #fcfcfc;
+  fill: #c9c9c9;
   cursor: pointer;
 }
-
-$padding: 3em;
 
 @mixin vertical-center {
   top: 0;
@@ -14,27 +14,61 @@ $padding: 3em;
   margin: auto;
 }
 
-.modal__cross {
-  @include button;
-  right: $padding;
-}
-
 .title {
   display: inline-block;
+}
+
+@mixin slideUp{
+  animation-name: slideUp;
+  -webkit-animation-name: slideUp;
+
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+
+  visibility: visible !important;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  50%{
+    transform: translateY(-8%);
+  }
+  65%{
+    transform: translateY(4%);
+  }
+  80%{
+    transform: translateY(-4%);
+  }
+  95%{
+    transform: translateY(2%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 .title:hover::after {
   content: attr(data-title);
   position: absolute;
-  width: 6em;
+  width: 7em;
   margin: auto;
   left: -2em;
-  bottom: 2.5em;
+  bottom: 3.5em;
   z-index: 1;
   color: #fff;
   font-family: Arial, sans-serif;
+  @include slideUp;
 }
 
+.modal__cross {
+  @include button;
+  right: $padding;
+}
 
 .modal__download {
   @include button;
@@ -56,3 +90,12 @@ $padding: 3em;
   @include vertical-center;
   right: $padding;
 }
+
+.arrow__right:hover,
+.arrow__left:hover,
+.modal__cross:hover,
+.modal__download a:hover {
+  fill: #fcfcfc;
+}
+
+

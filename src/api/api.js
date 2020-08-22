@@ -25,9 +25,10 @@ const getQuery = (url) => {
 const parseResponse = (response) => {
     const url = !response.url ? defaultImages : response.url;
     return {
-        url: !response.hdurl ? defaultImages : url,
+        url: !response.url ? defaultImages : url,
         hdurl: !response.hdurl ? url : response.hdurl,
         title: !response.title ? 'Данных нет' : response.title,
+        media_type: !response.media_type ? 'image' : response.media_type,
         date: !response.date ? 'Возможно дата еще не наступила или нет сохраненных данных' : response.date,
         explanation: response.explanation
     };
