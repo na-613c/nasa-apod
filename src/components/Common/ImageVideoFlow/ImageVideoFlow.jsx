@@ -24,7 +24,7 @@ const Image = ({title, url, ...restProp}) => {
 
 const Video = ({url}) => {
     return (
-        <iframe src={url} frameBorder="0" allowFullScreen allowTransparency/>
+        <iframe src={url} frameBorder="0" allowFullScreen allowtransparency/>
     )
 };
 
