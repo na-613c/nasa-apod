@@ -24,6 +24,10 @@ body{
   padding: 1.5em 0.5em;
 }
 
+.react-calendar__navigation {
+  margin-bottom: 0.5em;
+}
+
 .react-calendar{
   @include height;
   width: 350px;

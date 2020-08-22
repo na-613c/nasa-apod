@@ -1,9 +1,10 @@
 import React from "react";
+import {prevImageButton} from "./DataTitle";
 
 
 const PrevImageButton = ({onClick}) => {
     return (
-        <div className='arrow__left title' data-title="Предыдущая картинка">
+        <div className='arrow__left title' data-title={prevImageButton}>
             <svg onClick={onClick}
                  viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd"

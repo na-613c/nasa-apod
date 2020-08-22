@@ -1,9 +1,10 @@
 import React from "react";
+import {nextImageButton} from "./DataTitle";
 
 
 const NextImageButton = ({onClick}) => {
     return (
-        <div className='arrow__right title' data-title="Следующая картинка">
+        <div className='arrow__right title' data-title={nextImageButton}>
             <svg onClick={onClick}
                  viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd"

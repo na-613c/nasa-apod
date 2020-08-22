@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import CloseButton from "../Common/Buttons/CloseButton";
 import PrevImageButton from "../Common/Buttons/PrevImageButton";
@@ -12,6 +12,7 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
     const modal_content = 'modal-content';
     const modal_image_content = 'modal-image-content';
 
+    const [isShowExplanation, setIsShowExplanation] = useState(false);
 
     const onClickSetBigImage = (e) => {
         const targetClass = e.target.className;
@@ -50,8 +51,17 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
                         <CloseButton onClick={setModal}/>
                         <DownloadButton url={image.hdurl}/>
 
-                        <div className='image-explanation' data-title={image.explanation}>
-                            <img src={image.url} alt='' className='image-explanation' data-title={image.explanation}/>
+                        <div className='image-explanation'
+                             onMouseOver={() => setIsShowExplanation(true)}
+                             onMouseLeave={() => setIsShowExplanation(false)}>
+
+                            {isShowExplanation &&
+                            <div className='pullUp'>
+                                {image.explanation}
+                            </div>
+                            }
+
+                            <img src={image.url} alt='' className='image-explanation' />
                         </div>
                     </div>
 

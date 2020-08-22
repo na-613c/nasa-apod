@@ -1,9 +1,10 @@
 import React from "react";
+import {closeButton} from "./DataTitle";
 
 
 const CloseButton = ({onClick}) => {
     return (
-        <div className='modal__cross title' data-title="Закрыть">
+        <div className='modal__cross title' data-title={closeButton}>
             <svg onClick={onClick}
                  viewBox="0 0 16 16" xmlns='http://www.w3.org/2000/svg'>
                 <path fillRule="evenodd"
