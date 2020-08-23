@@ -1,7 +1,8 @@
-![](./src/images/wallpapersden.com_earth-and-moon-freindship.jpg "nasa apod")
 ## Описание
 
-WEB-приложение с использованием [NASA API](https://api.nasa.gov/) 
+WEB-приложение с использованием [NASA API](https://api.nasa.gov/)
+
+![](./src/images/wallpapersden.com_earth-and-moon-freindship.jpg "nasa apod")
 
 ## Использованные технологии 
 
