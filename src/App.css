@@ -47,6 +47,7 @@
   position: absolute;
   fill: #c9c9c9;
   cursor: pointer;
+  z-index: 1;
   right: 4em;
 }
 
@@ -56,6 +57,7 @@
   position: absolute;
   fill: #c9c9c9;
   cursor: pointer;
+  z-index: 1;
   position: absolute;
   left: -4em;
 }
@@ -66,6 +68,7 @@
   position: absolute;
   fill: #c9c9c9;
   cursor: pointer;
+  z-index: 1;
   right: 8.8em;
 }
 
@@ -79,6 +82,7 @@
   position: absolute;
   fill: #c9c9c9;
   cursor: pointer;
+  z-index: 1;
   top: 0;
   bottom: 0;
   margin: auto;
@@ -91,6 +95,7 @@
   position: absolute;
   fill: #c9c9c9;
   cursor: pointer;
+  z-index: 1;
   top: 0;
   bottom: 0;
   margin: auto;
@@ -224,6 +229,12 @@
   transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
   box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+
+.more__info {
+  cursor: pointer;
+  color: azure;
+  text-shadow: #0c00ff 0.5px 0.5px 0, #0c00ff -0.5px -0.5px 0, #0c00ff -0.5px 0.5px 0, #0c00ff 0.5px -0.5px 0;
 }
 
 @keyframes show {

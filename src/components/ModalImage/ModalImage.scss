@@ -23,6 +23,18 @@
   border: 1px solid #000000;
 }
 
+$text-shadow: #0c00ff;
+$box:.5px;
+
+.more__info{
+  cursor: pointer;
+  color: azure;
+  text-shadow: $text-shadow $box $box 0,
+  $text-shadow 0-$box 0-$box 0,
+  $text-shadow 0-$box $box 0,
+  $text-shadow $box 0-$box 0;
+}
+
 @keyframes show {
   0% {
     opacity: 0;

@@ -5,7 +5,6 @@ import PrevImageButton from "../Common/Buttons/PrevImageButton";
 import NextImageButton from "../Common/Buttons/NextImageButton";
 import DownloadButton from "../Common/Buttons/DownloadButton";
 import ImageVideoFlow from "../Common/ImageVideoFlow/ImageVideoFlow";
-import InfoButton from "../Common/Buttons/InfoButton";
 
 
 const ModalImage = ({images, setModal, movePrev, moveNext}) => {
@@ -51,7 +50,6 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
                         <DownloadButton url={image.hdurl}/>
 
                         <div className='image-explanation'>
-                            <InfoButton onClick={() => setIsShowExplanation(!isShowExplanation)}/>
                             {isShowExplanation &&
                             <Explanation media_type={image.media_type} explanation={image.explanation}/>
                             }
@@ -61,7 +59,10 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
                                             url={image.url}/>
                         </div>
                     </div>
-                    <p>{image.title} [ {image.date} ]</p>
+                    <p>{image.title} [ {image.date} ]
+                        <a className="more__info"  onClick={() => setIsShowExplanation(!isShowExplanation)}> more informtion </a>
+                    </p>
+
                 </div>
             </div>}
         </>
