@@ -83,8 +83,9 @@ const ModalImage = ({images, setModal, movePrev, moveNext}) => {
                             />
                         </div>
                     </div>
-                    <p>{image.title} [ {image.date} ]
-                        <a className="more__info" onClick={() => setIsShowExplanation(!isShowExplanation)}>
+                    <p>{image.title} [ {image.date} ] <a
+                        className="more__info"
+                        onClick={() => setIsShowExplanation(!isShowExplanation)}>
                             more informtion
                         </a>
                     </p>
