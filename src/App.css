@@ -145,6 +145,8 @@
   object-fit: cover;
   border: 1px solid #a0a096;
   cursor: pointer;
+  transition: 0.2s all;
+  animation: showInfo 0.2s 1;
 }
 
 .Content-img iframe {
@@ -167,6 +169,23 @@
   overflow-y: auto;
 }
 
+.info {
+  animation: showInfo 0.2s 1;
+  transition: 0.2s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes showInfo {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .App-all-content {
   -ms-grid-row: 3;
   -ms-grid-column: 1;

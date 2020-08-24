@@ -36,7 +36,10 @@
   object-fit: cover;
   @include border;
   cursor: pointer;
+  transition: 0.2s  all;
+  animation: showInfo 0.2s  1;
 }
+
 .Content-img iframe {
   float: left;
   margin-right: 10px;
@@ -51,9 +54,26 @@
   margin-right: 0;
 }
 
-
 .Explanation {
   height: 190px;
   text-overflow: ellipsis;
   overflow-y: auto;
+}
+
+.info{
+  animation: showInfo 0.2s  1;
+  transition: 0.2s ;
+  animation-fill-mode:backwards;
+}
+
+@keyframes showInfo {
+  0% {
+    opacity: 0;
+  }
+  99%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

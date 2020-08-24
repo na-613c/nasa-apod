@@ -5,17 +5,6 @@ import ImageVideoFlow from "../Common/ImageVideoFlow/ImageVideoFlow";
 const Content = ({img, setModal}) => {
     const [isHide, setIsHide] = useState(true);
 
-    // let content = img.media_type === 'image' ?
-    //     <img onClick={() => setModal([img])}
-    //          onMouseOver={() => setIsHide(false)}
-    //          onMouseOut={() => setIsHide(true)}
-    //          src={img.url}
-    //          alt={img.title}
-    //          title={!img.title ? '' : 'Нажмите для увеличения'}/>
-    //
-    //     : <iframe src={img.url} frameBorder="0" allowFullScreen allowTransparency/>;
-
-
     return (
         <div className='App-content'>
             <div className='Content-img'>

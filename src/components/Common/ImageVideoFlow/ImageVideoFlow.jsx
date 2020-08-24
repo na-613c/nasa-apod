@@ -8,6 +8,7 @@ const ImageVideoFlow = ({media_type, title, url, ...restProp}) => {
             return <Image title={title} url={url} {...restProp}/>;
         case 'video':
             return <Video url={url} {...restProp}/>;
+        default: return null;
     }
 };
 
@@ -23,9 +24,7 @@ const Image = ({title, url, ...restProp}) => {
 };
 
 const Video = ({url}) => {
-    return (
-        <iframe src={url} frameBorder="0" allowFullScreen allowtransparency/>
-    )
+    return  <iframe src={url} frameBorder="0" allowFullScreen allowtransparency='true' title={url}/>;
 };
 
 export default ImageVideoFlow;
