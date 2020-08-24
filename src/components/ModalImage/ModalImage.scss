@@ -25,6 +25,7 @@
 
 $text-shadow: #0c00ff;
 $box:.5px;
+$translateY: -50%;
 
 .more__info{
   cursor: pointer;
@@ -98,10 +99,58 @@ $box:.5px;
   height: 100.1%;
   width: 100.1%;
   background: rgba(1, 1, 1, 0.8);
+}
+
+.background-modal-animation{
   opacity: 0;
   transition: .5s;
   animation: show .4s 1;
   animation-fill-mode: forwards;
+}
+
+.slideRight{
+  animation-name: slideRight;
+  -webkit-animation-name: slideRight;
+
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+
+  visibility: visible !important;
+}
+
+
+@keyframes slideRight {
+  0% {
+    transform: translate(-150%, $translateY);
+  }
+  100% {
+    transform: translate(-50%, $translateY);
+  }
+}
+
+.slideLeft{
+  animation-name: slideLeft;
+  -webkit-animation-name: slideLeft;
+
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+
+  visibility: visible !important;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translate(50%, $translateY);
+  }
+  100% {
+    transform: translate(-50%, $translateY);
+  }
 }
 
 .background-modal-image p {

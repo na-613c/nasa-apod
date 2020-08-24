@@ -10,6 +10,7 @@ const CalendarContainer = ({onActiveStartDateChange, onChange, value}) => {
                 onChange={onChange}
                 value={value}
                 onActiveStartDateChange={onActiveStartDateChange}
+                locale='en'
             />
         </div>
     );

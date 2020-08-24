@@ -116,7 +116,7 @@
   grid-area: content;
   box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
   border: 1px solid #a0a096;
-  padding: 9px 10px 11px 10px;
+  padding: 10px;
   position: absolute;
   left: 0;
   right: 0;
@@ -140,10 +140,10 @@
 .Content-img img {
   float: left;
   margin-right: 10px;
-  height: 258px;
-  width: 258px;
+  height: 256px;
+  width: 256px;
   object-fit: cover;
-  border: 1px solid #a0a096;
+  border: solid #a0a096;
   cursor: pointer;
   transition: 0.2s all;
   animation: showInfo 0.2s 1;
@@ -152,9 +152,9 @@
 .Content-img iframe {
   float: left;
   margin-right: 10px;
-  height: 258px;
+  height: 256px;
   object-fit: cover;
-  border: 1px solid #a0a096;
+  border: solid #a0a096;
 }
 
 .Content-img img:hover {
@@ -318,12 +318,51 @@
   height: 100.1%;
   width: 100.1%;
   background: rgba(1, 1, 1, 0.8);
+}
+
+.background-modal-animation {
   opacity: 0;
   transition: 0.5s;
   animation: show 0.4s 1;
   animation-fill-mode: forwards;
 }
 
+.slideRight {
+  animation-name: slideRight;
+  -webkit-animation-name: slideRight;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  visibility: visible !important;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translate(-150%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+.slideLeft {
+  animation-name: slideLeft;
+  -webkit-animation-name: slideLeft;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  visibility: visible !important;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translate(50%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
 .background-modal-image p {
   color: azure;
 }
@@ -427,7 +466,7 @@ body {
 }
 
 .react-calendar__navigation {
-  margin-bottom: 0;
+  margin-bottom: 0.1em;
 }
 
 .react-calendar {

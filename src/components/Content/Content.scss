@@ -7,7 +7,7 @@
 .App-content {
   grid-area: content;
   @include box-shadow;
-  padding: 9px 10px 11px 10px;
+  padding: 10px;
   position: absolute;
   left: 0;
   right: 0;
@@ -31,10 +31,10 @@
 .Content-img img {
   float: left;
   margin-right: 10px;
-  height: 258px;
-  width: 258px;
+  height: 256px;
+  width: 256px;
   object-fit: cover;
-  @include border;
+  @include borderImg;
   cursor: pointer;
   transition: 0.2s  all;
   animation: showInfo 0.2s  1;
@@ -43,9 +43,9 @@
 .Content-img iframe {
   float: left;
   margin-right: 10px;
-  height: 258px;
+  height: 256px;
   object-fit: cover;
-  @include border;
+  @include borderImg;
 }
 
 .Content-img img:hover {

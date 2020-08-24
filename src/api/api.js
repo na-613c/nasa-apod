@@ -16,6 +16,18 @@ export const formatDate = (date) => {
     const year = date.getFullYear();
 
     return `${year}-${month}-${day}`;
+    // January
+    // February
+    // March
+    // April
+    // May
+    // June
+    // July
+    // August
+    // September
+    // October
+    // November
+    // December
 };
 
 const getQuery = (url) => {
