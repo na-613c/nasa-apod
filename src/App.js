@@ -1,22 +1,31 @@
 import React, {useEffect} from 'react';
 import CalendarContainer from './components/Calendar/CalendarContainer';
 import GridPictures from './components/GridPictures/GridPictures';
-import ModalImage from './components/ModalImage/ModalImage';
+import ModalImageContainer from './components/ModalImage/ModalImageContainer';
 import Content from './components/Content/Content';
 import 'react-calendar/dist/Calendar.css';
 import './App.css';
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {setImage} from "./redux/image-reducer";
-import {moveNext, movePrev, setModalImage, setModalImages} from "./redux/modal-reducer";
+import {setModalImage, setModalImages} from "./redux/modal-reducer";
 import {setImagesArray} from "./redux/month-image-reducer";
 import {formatDate} from "./api/api";
 
 
-const App = ({
-                 image, modalImages, monthImages, isLoadMonthImages, setImage, setModalImage,
-                 setImagesArray, setModalImages, movePrev, moveNext
-             }) => {
+const App = (props) => {
+
+    const {
+        image,
+        setImage,
+        modalImages,
+        setModalImage,
+        setModalImages,
+        monthImages,
+        setImagesArray,
+        isLoadMonthImages,
+    } = props;
+
     const getDate = () => {
         return !localStorage.getItem('date')
             ? new Date()
@@ -44,14 +53,16 @@ const App = ({
     };
 
     return (
-        <div className='App-wrapper'>
-            <CalendarContainer
-                onChange={onChange}
-                onActiveStartDateChange={onActiveStartDateChange}
-                value={getDate()}/>
-            <Content img={image} setModal={setModalImage}/>
-            <GridPictures imgArray={monthImages} setModal={setModalImages} isLoad={isLoadMonthImages}/>
-            <ModalImage images={modalImages} setModal={setModalImage} movePrev={movePrev} moveNext={moveNext}/>
+        <div>
+            <div className='App-wrapper'>
+                <CalendarContainer
+                    onChange={onChange}
+                    onActiveStartDateChange={onActiveStartDateChange}
+                    value={getDate()}/>
+                <Content img={image} setModal={setModalImage}/>
+                <GridPictures imgArray={monthImages} setModal={setModalImages} isLoad={isLoadMonthImages}/>
+            </div>
+            <ModalImageContainer images={modalImages} setModal={setModalImage}/>
         </div>
     )
 };
@@ -69,8 +80,6 @@ const AppContainer = compose(
         setModalImage,
         setModalImages,
         setImagesArray,
-        movePrev,
-        moveNext
     })
 )(App);
 
