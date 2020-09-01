@@ -1,26 +1,27 @@
 {
   "files": {
-    "main.css": "/nasa-apod/static/css/main.d304b886.chunk.css",
-    "main.js": "/nasa-apod/static/js/main.1d2ac0ca.chunk.js",
-    "main.js.map": "/nasa-apod/static/js/main.1d2ac0ca.chunk.js.map",
+    "main.css": "/nasa-apod/static/css/main.946a66a3.chunk.css",
+    "main.js": "/nasa-apod/static/js/main.3230e97f.chunk.js",
+    "main.js.map": "/nasa-apod/static/js/main.3230e97f.chunk.js.map",
     "runtime-main.js": "/nasa-apod/static/js/runtime-main.42cfeb27.js",
     "runtime-main.js.map": "/nasa-apod/static/js/runtime-main.42cfeb27.js.map",
-    "static/css/2.5215f976.chunk.css": "/nasa-apod/static/css/2.5215f976.chunk.css",
-    "static/js/2.0f4d81e2.chunk.js": "/nasa-apod/static/js/2.0f4d81e2.chunk.js",
-    "static/js/2.0f4d81e2.chunk.js.map": "/nasa-apod/static/js/2.0f4d81e2.chunk.js.map",
+    "static/css/2.9ce883a6.chunk.css": "/nasa-apod/static/css/2.9ce883a6.chunk.css",
+    "static/js/2.42f8af07.chunk.js": "/nasa-apod/static/js/2.42f8af07.chunk.js",
+    "static/js/2.42f8af07.chunk.js.map": "/nasa-apod/static/js/2.42f8af07.chunk.js.map",
     "index.html": "/nasa-apod/index.html",
-    "precache-manifest.bf41fce0ada80e7ae7c3c84d8cbf4836.js": "/nasa-apod/precache-manifest.bf41fce0ada80e7ae7c3c84d8cbf4836.js",
+    "precache-manifest.f240de86673dcc84dd9394715a74ca92.js": "/nasa-apod/precache-manifest.f240de86673dcc84dd9394715a74ca92.js",
     "service-worker.js": "/nasa-apod/service-worker.js",
-    "static/css/2.5215f976.chunk.css.map": "/nasa-apod/static/css/2.5215f976.chunk.css.map",
-    "static/css/main.d304b886.chunk.css.map": "/nasa-apod/static/css/main.d304b886.chunk.css.map",
-    "static/js/2.0f4d81e2.chunk.js.LICENSE.txt": "/nasa-apod/static/js/2.0f4d81e2.chunk.js.LICENSE.txt",
-    "static/media/not_found.gif": "/nasa-apod/static/media/not_found.e9ff6ff5.gif"
+    "static/css/2.9ce883a6.chunk.css.map": "/nasa-apod/static/css/2.9ce883a6.chunk.css.map",
+    "static/css/main.946a66a3.chunk.css.map": "/nasa-apod/static/css/main.946a66a3.chunk.css.map",
+    "static/js/2.42f8af07.chunk.js.LICENSE.txt": "/nasa-apod/static/js/2.42f8af07.chunk.js.LICENSE.txt",
+    "static/media/not_found.gif": "/nasa-apod/static/media/not_found.e9ff6ff5.gif",
+    "static/media/slick-theme.css": "/nasa-apod/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.42cfeb27.js",
-    "static/css/2.5215f976.chunk.css",
-    "static/js/2.0f4d81e2.chunk.js",
-    "static/css/main.d304b886.chunk.css",
-    "static/js/main.1d2ac0ca.chunk.js"
+    "static/css/2.9ce883a6.chunk.css",
+    "static/js/2.42f8af07.chunk.js",
+    "static/css/main.946a66a3.chunk.css",
+    "static/js/main.3230e97f.chunk.js"
   ]
 }
