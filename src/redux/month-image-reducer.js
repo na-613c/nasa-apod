@@ -36,9 +36,13 @@ const monthImageReducer = (state = initState, action) => {
 const setImagesArrayAC = (imagesArray, query) => ({type: SET_ARRAY, imagesArray, query});
 const startLoadingAC = (query) => ({type: START_LOADING, query});
 
+
 export const setImagesArray = (date) => async (dispatch) => {
     const currentQueryCounter = ++queryCounter;
+
     dispatch(startLoadingAC(currentQueryCounter));
+
+    if (!isPassedMonth(date)) return dispatch(setImagesArrayAC([], currentQueryCounter));
 
     let imagesArray = [];
     const daysInMonth = 32 - new Date(date.getFullYear(), date.getMonth(), 32).getDate();
@@ -48,8 +52,16 @@ export const setImagesArray = (date) => async (dispatch) => {
         imagesArray.push(await getPicture(currentDate));
     }
 
-    dispatch(setImagesArrayAC(imagesArray.filter(i => i.explanation), currentQueryCounter));
+    return dispatch(setImagesArrayAC(imagesArray.filter(i => i.explanation), currentQueryCounter));
 };
 
+
+const isPassedMonth = (date) => {
+    const currentDate = new Date();
+
+    if (date.getFullYear() > currentDate.getFullYear()) return false;
+
+    return !(date.getFullYear() === currentDate.getFullYear() && date.getMonth() > currentDate.getMonth());
+};
 
 export default monthImageReducer;
