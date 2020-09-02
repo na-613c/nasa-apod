@@ -17,13 +17,15 @@ const ModalImageContainer = ({images, setModal}) => {
 
     const [isShowExplanation, setIsShowExplanation] = useState(false);
     const [newKey, setNewKey] = useState(images.key);
+    const [modalClass, setModalClass] = useState('');
 
     useEffect(() => {
+        setModalClass(modal_content + ' background-modal-animation');
         setIsShowExplanation(false);
         setNewKey(images.key);
     }, [images.isShow]);
 
-    const onClickSetBigImage = (e) => {
+    const closeModalImage = (e) => {
         const targetClass = e.target.className;
         switch (targetClass) {
             case  bg_class :
@@ -42,7 +44,10 @@ const ModalImageContainer = ({images, setModal}) => {
         initialSlide: images.key,
         nextArrow: <NextImageButton/>,
         prevArrow: <PrevImageButton/>,
-        beforeChange: (current, next) => setNewKey(next),
+        beforeChange: (current, next) => {
+            setModalClass(modal_content);
+            setNewKey(next)
+        },
     };
 
     const imageArray = images.viewedImages.map((i, id) => {
@@ -52,11 +57,10 @@ const ModalImageContainer = ({images, setModal}) => {
                             setIsShowExplanation={setIsShowExplanation}/>
     });
 
-
     return (
         <>
             {(images.isShow) &&
-            <div className={modal_content} onClick={onClickSetBigImage}>
+            <div className={modalClass} onClick={closeModalImage}>
                 <CloseButton onClick={setModal}/>
                 <DownloadButton url={images.viewedImages[newKey].hdurl}/>
                 <Slider {...settings}>
@@ -81,7 +85,7 @@ const CustomSlide = React.memo(({image, isShowExplanation, setIsShowExplanation}
                                 title={image.title}
                                 url={image.url}/>
             </div>
-            <p className='azure'>{image.title} [ {image.date} ] <a
+            <p>{image.title} [ {image.date} ] <a
                 className='more__info'
                 onClick={() => setIsShowExplanation(!isShowExplanation)}>
                 more informtion

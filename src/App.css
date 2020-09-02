@@ -252,8 +252,12 @@
 
 .more__info {
   cursor: pointer;
-  color: azure;
-  text-shadow: #0c00ff 0.5px 0.5px 0, #0c00ff -0.5px -0.5px 0, #0c00ff -0.5px 0.5px 0, #0c00ff 0.5px -0.5px 0;
+  color: #e7e7ff;
+  text-shadow: #35577a 1px 1px 0, #35577a -1px -1px 0, #35577a -1px 1px 0, #35577a 1px -1px 0;
+}
+
+.more__info:hover {
+  color: #0087ff;
 }
 
 @keyframes show {
@@ -363,10 +367,6 @@
     transform: translate(-50%, -50%);
   }
 }
-.azure {
-  color: azure;
-}
-
 .modal-content {
   width: 100%;
   height: 100%;
@@ -376,7 +376,6 @@
   top: 50%;
   left: 50%;
   text-align: center;
-  border-radius: 3px;
   top: 0;
   left: 0;
   color: azure;
@@ -445,6 +444,33 @@
   transform-origin: 50% 0%;
   -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 10px;
+  background: #272c35;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+  background: #0087ff;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 10px;
+  background: #272c35;
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #0087ff;
 }
 
 body {

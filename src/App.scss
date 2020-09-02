@@ -5,9 +5,37 @@
 @import "./components/GridPictures/Picture/Picture";
 @import "./components/ModalImage/ModalImage";
 
-body{
+
+@mixin scrollbar {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background: rgba(0, 0, 0, 0);
+  }
+  ::-webkit-scrollbar-thumb:vertical {
+    height: 10px;
+    background: #272c35;
+  }
+  ::-webkit-scrollbar-thumb:vertical:hover {
+    background: #0087ff;
+  }
+  ::-webkit-scrollbar-thumb:horizontal {
+    width: 10px;
+    background: #272c35;
+  }
+  ::-webkit-scrollbar-thumb:horizontal:hover {
+    background: #0087ff;
+  }
+}
+
+@include scrollbar;
+
+body {
   @include background-body;
 }
+
 
 .App-wrapper {
   margin: 2vh auto 5vh auto;
@@ -20,11 +48,11 @@ body{
   position: relative;
 }
 
-.react-calendar__year-view .react-calendar__tile, .react-calendar__decade-view .react-calendar__tile, .react-calendar__century-view .react-calendar__tile{
+.react-calendar__year-view .react-calendar__tile, .react-calendar__decade-view .react-calendar__tile, .react-calendar__century-view .react-calendar__tile {
   padding: 1.5em 0.5em;
 }
 
-.react-calendar__tile{
+.react-calendar__tile {
   padding: .65em .5em;
 }
 
@@ -32,7 +60,7 @@ body{
   margin-bottom: .1em;
 }
 
-.react-calendar{
+.react-calendar {
   @include height;
   width: 350px;
 }

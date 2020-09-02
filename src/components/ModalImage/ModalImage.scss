@@ -23,17 +23,21 @@
   border: 1px solid #000000;
 }
 
-$text-shadow: #0c00ff;
-$box:.5px;
+$text-shadow: #35577a;
+$box: 1px;
 $translateY: -50%;
 
 .more__info{
   cursor: pointer;
-  color: azure;
+  color: #e7e7ff;
   text-shadow: $text-shadow $box $box 0,
   $text-shadow 0-$box 0-$box 0,
   $text-shadow 0-$box $box 0,
   $text-shadow $box 0-$box 0;
+}
+
+.more__info:hover{
+  color: #0087ff;
 }
 
 @keyframes show {
@@ -153,10 +157,6 @@ $translateY: -50%;
   }
 }
 
-.azure {
-  color: azure;
-}
-
 .modal-content {
   width: 100%;
   height: 100%;
@@ -164,7 +164,6 @@ $translateY: -50%;
   background: rgba(0, 0, 0, 0.8);
   @include center;
   text-align: center;
-  border-radius: 3px;
   top: 0;
   left: 0;
   color: azure;
