@@ -50,16 +50,10 @@
   z-index: 1;
   right: 4em;
 }
-
-.modal__info {
-  width: 3em;
-  height: 3em;
-  position: absolute;
-  fill: #c9c9c9;
-  cursor: pointer;
-  z-index: 1;
-  position: absolute;
-  left: -4em;
+@media screen and (max-width: 1100px) {
+  .modal__cross {
+    right: 1em;
+  }
 }
 
 .modal__download {
@@ -70,6 +64,17 @@
   cursor: pointer;
   z-index: 1;
   right: 8.8em;
+}
+@media screen and (max-width: 1100px) {
+  .modal__download {
+    right: 5.8em;
+  }
+}
+@media screen and (max-width: 720px) {
+  .modal__download {
+    right: 1em;
+    top: 5.8em;
+  }
 }
 
 .modal__download a:visited {
@@ -88,6 +93,16 @@
   margin: auto;
   left: 4em;
 }
+@media screen and (max-width: 1100px) {
+  .arrow__left {
+    left: 1em;
+  }
+}
+@media screen and (max-width: 720px) {
+  .arrow__left {
+    display: none;
+  }
+}
 
 .arrow__right {
   width: 3em;
@@ -100,6 +115,16 @@
   bottom: 0;
   margin: auto;
   right: 4em;
+}
+@media screen and (max-width: 1100px) {
+  .arrow__right {
+    right: 1em;
+  }
+}
+@media screen and (max-width: 720px) {
+  .arrow__right {
+    display: none;
+  }
 }
 
 .arrow__right:hover,
@@ -124,6 +149,12 @@
   bottom: 0;
   background: white;
 }
+@media screen and (max-width: 900px) {
+  .App-content {
+    overflow-y: auto;
+    margin-bottom: 10vh;
+  }
+}
 
 .info span {
   white-space: nowrap;
@@ -133,8 +164,13 @@
 
 .Content-img {
   height: 100%;
-  width: 100%;
   display: inline;
+}
+@media screen and (max-width: 900px) {
+  .Content-img {
+    height: 270px;
+    float: left;
+  }
 }
 
 .Content-img img {
@@ -163,10 +199,17 @@
   margin-right: 0;
 }
 
-.Explanation {
-  height: 190px;
-  text-overflow: ellipsis;
-  overflow-y: auto;
+@media screen and (max-width: 900px) {
+  .Explanation {
+    text-overflow: ellipsis;
+  }
+}
+@media screen and (min-width: 900px) {
+  .Explanation {
+    height: 190px;
+    text-overflow: ellipsis;
+    overflow-y: auto;
+  }
 }
 
 .info {
@@ -199,12 +242,36 @@
   text-align: center;
   align-items: center;
 }
+@media screen and (max-width: 1100px) {
+  .App-all-content {
+    grid-template-columns: 20.5vw 20.5vw;
+  }
+}
+@media screen and (max-width: 900px) {
+  .App-all-content {
+    width: 30vw;
+    grid-template-columns: 31vw;
+    justify-items: center;
+  }
+}
 
 .App-all-content img, .App-all-content iframe {
   height: 15vw;
   width: 15vw;
   margin-bottom: 0.5vw;
   object-fit: cover;
+}
+@media screen and (max-width: 1100px) {
+  .App-all-content img, .App-all-content iframe {
+    height: 19.5vw;
+    width: 19.5vw;
+  }
+}
+@media screen and (max-width: 900px) {
+  .App-all-content img, .App-all-content iframe {
+    height: 30vw;
+    width: 30vw;
+  }
 }
 
 .item {
@@ -493,6 +560,33 @@ body {
   grid-gap: 50px 10px;
   position: relative;
 }
+@media screen and (max-width: 1100px) {
+  .App-wrapper {
+    width: 90vw;
+  }
+}
+@media screen and (max-width: 900px) {
+  .App-wrapper {
+    width: 98vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr auto;
+    justify-items: center;
+    grid-template-areas: "calendar" "content" "all" "all";
+    grid-gap: 10px;
+    align-items: center;
+  }
+  .App-content {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  .App-all-content {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+}
 
 .react-calendar__year-view .react-calendar__tile, .react-calendar__decade-view .react-calendar__tile, .react-calendar__century-view .react-calendar__tile {
   padding: 1.5em 0.5em;
@@ -524,6 +618,19 @@ body {
   grid-area: all;
   text-align: center;
   height: 293px;
+}
+
+@media screen and (max-width: 900px) {
+  .App-calendar {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .preloader {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
 }
 
 .preloader img {

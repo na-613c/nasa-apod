@@ -14,6 +14,10 @@
   top: 0;
   bottom: 0;
   @include background;
+  @media screen and (max-width: 900px) {
+    overflow-y: auto;
+    margin-bottom: 10vh;
+  }
 }
 
 .info span {
@@ -24,8 +28,11 @@
 
 .Content-img {
   height: 100%;
-  width: 100%;
   display: inline;
+  @media screen and (max-width: 900px) {
+    height: 270px;
+    float: left;
+  }
 }
 
 .Content-img img {
@@ -36,8 +43,8 @@
   object-fit: cover;
   @include borderImg;
   cursor: pointer;
-  transition: 0.2s  all;
-  animation: showInfo 0.2s  1;
+  transition: 0.2s all;
+  animation: showInfo 0.2s 1;
 }
 
 .Content-img iframe {
@@ -55,22 +62,27 @@
 }
 
 .Explanation {
-  height: 190px;
-  text-overflow: ellipsis;
-  overflow-y: auto;
+  @media screen and (max-width: 900px) {
+    text-overflow: ellipsis;
+  }
+  @media screen and (min-width: 900px) {
+    height: 190px;
+    text-overflow: ellipsis;
+    overflow-y: auto;
+  }
 }
 
-.info{
-  animation: showInfo 0.2s  1;
-  transition: 0.2s ;
-  animation-fill-mode:backwards;
+.info {
+  animation: showInfo 0.2s 1;
+  transition: 0.2s;
+  animation-fill-mode: backwards;
 }
 
 @keyframes showInfo {
   0% {
     opacity: 0;
   }
-  99%{
+  99% {
     opacity: 0;
   }
   100% {
