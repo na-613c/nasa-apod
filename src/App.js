@@ -5,6 +5,7 @@ import ModalImageContainer from './components/ModalImage/ModalImageContainer';
 import Content from './components/Content/Content';
 import 'react-calendar/dist/Calendar.css';
 import './App.css';
+import './3d.css';
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {setImage} from "./redux/image-reducer";
